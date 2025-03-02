@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Sculptures-rémy{% endblock %} {%
+block content %}
+<section class="galerie-tbl fade-in-element">
+  <h2>SCULPTURES</h2>
+  <div class="tableaux">
+    {% for sculpture in sculptures%}
+    <a
+      href="
+          {% if sculpture.titre == 'Fusos' %}
+            {{ url_for('fusos') }}
+          {% elif sculpture.titre == 'Monsters' %}
+            {{ url_for('monsters') }}
+          {% elif sculpture.titre == 'Masques' %}
+            {{ url_for('masques_view') }}
+          {% elif sculpture.titre == 'Métals' %}
+            {{ url_for('creations') }}
+          {% elif sculpture.titre == 'Motograff' %}
+            {{ url_for('bikes') }}
+          {% else %}
+            {{ url_for('sculptures', sculpture_id=sculpture.id) }}
+          {% endif %}"
+      class="tableau"
+      data-category="{{ sculpture.categorie }}"
+    >
+      <div class="tableau">
+        <img
+          src="{{ url_for('static', filename='images/Sculp/' + sculpture.image) }}"
+          alt="{{ sculpture.titre }}"
+        />
+        <div class="tbl-details">
+          <h4>{{ sculpture.titre }}</h4>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Mon Site Web{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <nav role="navigation" class="primary-navigation">
+        <!-- Logo "REMY PAGART" -->
+        <div class="logo">
+          <a href="/">REMY PAGART</a>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/">Home</a></li>
+          <li>
+            <a href="#">Work</a>
+            <ul class="dropdown" &dtrif;>
+              <li><a href="/tableaux">Paintings</a></li>
+              <li>
+                <a href="/sculptures.html">Sculptures</a>
+              </li>
+              <li>
+                <a href="#">Designs</a>
+                <ul class="dropdown2">
+                  <li><a href="/furnitures.html">Furnitures</a></li>
+                  <li><a href="/motos.html">Bikes</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Archi</a>
+                <ul class="dropdown2">
+                  <li><a href="/boutiques.html">Boutiques</a></li>
+                  <li><a href="/houses.html">House</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <main>
+        <section class="detail-con main">
+          {% block content %}{% endblock %}
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="container-footer">
+        <small> &copy; 2025 Rémy pagart. Tous droits réservés. </small>
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+    </style>
+  </body>
+</html>

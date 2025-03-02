@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Tableaux-rémy{% endblock %} {% block
+content %}
+<section class="galerie-tbl fade-in-element">
+  <h2>PAINTINGS</h2>
+  <div class="tableaux">
+    {% for tableau in tableaux %}
+    <a
+      href="{{ url_for('tableau', tableau_id=tableau.id) }}"
+      class="tableau"
+      data-category="{{ tableau.categorie }}"
+    >
+      <div class="tableau">
+        <img
+          src="{{ url_for('static', filename='images/photos_TABLOS_site/' + tableau.image) }}"
+          alt="{{ tableau.titre }}"
+        />
+        <div class="tbl-details">
+          <h4>{{ tableau.titre }}</h4>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

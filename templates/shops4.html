@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% block title %}Shop4-rémy{% endblock %} {% block
+content %}
+<div class="container">
+  <div class="detail-info">
+    <h2>Boutiques</h2>
+    <a href="/boutiques.html" class="btn-retour-tbl fade-in-element"
+      >Retour aux boutiques</a
+    >
+  </div>
+
+  <div class="gallery-con">
+    <div class="mySlides">
+      <img
+        src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops4[0].image) }}"
+      />
+    </div>
+
+    <div class="mySlides">
+      <img
+        src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops4[1].image) }}"
+      />
+    </div>
+
+    <div class="mySlides">
+      <img
+        src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops4[2].image) }}"
+      />
+    </div>
+
+    <div class="mySlides">
+      <img
+        src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops4[3].image) }}"
+      />
+    </div>
+
+    <!-- Boutons de navigation -->
+    <div class="gallery-button">
+      <div class="button-prev">
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+      </div>
+      <div class="button-next">
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      </div>
+    </div>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Vignettes shops -->
+    <div class="row">
+      <span class="column">
+        <img
+          class="demo cursor"
+          src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops4[0].image) }}"
+          onclick="currentSlide(1)"
+          alt="{{ shops4[0].titre }}"
+        />
+      </span>
+
+      <span class="column">
+        <img
+          class="demo cursor"
+          src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops4[1].image) }}"
+          onclick="currentSlide(2)"
+          alt="{{ shops4[1].titre }}"
+        />
+      </span>
+
+      <span class="column">
+        <img
+          class="demo cursor"
+          src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops4[2].image) }}"
+          onclick="currentSlide(3)"
+          alt="{{ shops4[2].titre }}"
+        />
+      </span>
+
+      <span class="column">
+        <img
+          class="demo cursor"
+          src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops4[2].image) }}"
+          onclick="currentSlide(4)"
+          alt="{{ shops4[3].titre }}"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+{% endblock %}
