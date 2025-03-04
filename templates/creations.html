@@ -1,270 +1,272 @@
 {% extends "base.html" %} {% block title %}Créations-rémy{% endblock %} {% block
 content %}
-<div class="container">
-  <div class="detail-info">
-    <h2>METAL</h2>
-    <a href="/sculptures.html" class="btn-retour-tbl fade-in-element"
-      >Retour aux sculptures</a
-    >
-  </div>
-
-  <div class="gallery-con">
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[0].image) }}"
-      />
+<section class="detail-con main">
+  <div class="container">
+    <div class="detail-info">
+      <h2>METAL</h2>
+      <a href="/sculptures.html" class="btn-retour-tbl"
+        >Retour aux sculptures</a
+      >
     </div>
 
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[1].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[2].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[3].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[4].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[5].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[6].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[7].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[8].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[9].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[10].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[11].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[12].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[13].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[14].image) }}"
-      />
-    </div>
-
-    <div class="mySlides">
-      <img
-        src="{{ url_for('static', filename='images/METAL/' + creations[15].image) }}"
-      />
-    </div>
-
-    <!-- Boutons de navigation -->
-    <div class="gallery-button">
-      <div class="button-prev">
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-      </div>
-      <div class="button-next">
-        <a class="next" onclick="plusSlides(1)">❯</a>
-      </div>
-    </div>
-
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-    <!-- Vignettes creations -->
-    <div class="row">
-      <span class="column">
+    <div class="gallery-con">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[0].image) }}"
-          onclick="currentSlide(1)"
-          alt="{{ creations[0].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[1].image) }}"
-          onclick="currentSlide(2)"
-          alt="{{ creations[1].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[2].image) }}"
-          onclick="currentSlide(3)"
-          alt="{{ creations[2].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[3].image) }}"
-          onclick="currentSlide(4)"
-          alt="{{ creations[3].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[4].image) }}"
-          onclick="currentSlide(5)"
-          alt="{{ creations[4].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[5].image) }}"
-          onclick="currentSlide(6)"
-          alt="{{ creations[5].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[6].image) }}"
-          onclick="currentSlide(7)"
-          alt="{{ creations[6].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[7].image) }}"
-          onclick="currentSlide(8)"
-          alt="{{ creations[7].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[8].image) }}"
-          onclick="currentSlide(9)"
-          alt="{{ creations[8].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[9].image) }}"
-          onclick="currentSlide(10)"
-          alt="{{ creations[9].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[10].image) }}"
-          onclick="currentSlide(11)"
-          alt="{{ creations[10].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[11].image) }}"
-          onclick="currentSlide(12)"
-          alt="{{ creations[11].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[12].image) }}"
-          onclick="currentSlide(13)"
-          alt="{{ creations[12].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[13].image) }}"
-          onclick="currentSlide(14)"
-          alt="{{ creations[13].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[14].image) }}"
-          onclick="currentSlide(15)"
-          alt="{{ creations[14].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/METAL/' + creations[15].image) }}"
-          onclick="currentSlide(16)"
-          alt="{{ creations[15].titre }}"
         />
-      </span>
+      </div>
+
+      <!-- Boutons de navigation -->
+      <div class="gallery-button">
+        <div class="button-prev">
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+        </div>
+        <div class="button-next">
+          <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+      </div>
+
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+
+      <!-- Vignettes creations -->
+      <div class="row">
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[0].image) }}"
+            onclick="currentSlide(1)"
+            alt="{{ creations[0].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[1].image) }}"
+            onclick="currentSlide(2)"
+            alt="{{ creations[1].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[2].image) }}"
+            onclick="currentSlide(3)"
+            alt="{{ creations[2].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[3].image) }}"
+            onclick="currentSlide(4)"
+            alt="{{ creations[3].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[4].image) }}"
+            onclick="currentSlide(5)"
+            alt="{{ creations[4].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[5].image) }}"
+            onclick="currentSlide(6)"
+            alt="{{ creations[5].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[6].image) }}"
+            onclick="currentSlide(7)"
+            alt="{{ creations[6].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[7].image) }}"
+            onclick="currentSlide(8)"
+            alt="{{ creations[7].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[8].image) }}"
+            onclick="currentSlide(9)"
+            alt="{{ creations[8].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[9].image) }}"
+            onclick="currentSlide(10)"
+            alt="{{ creations[9].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[10].image) }}"
+            onclick="currentSlide(11)"
+            alt="{{ creations[10].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[11].image) }}"
+            onclick="currentSlide(12)"
+            alt="{{ creations[11].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[12].image) }}"
+            onclick="currentSlide(13)"
+            alt="{{ creations[12].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[13].image) }}"
+            onclick="currentSlide(14)"
+            alt="{{ creations[13].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[14].image) }}"
+            onclick="currentSlide(15)"
+            alt="{{ creations[14].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/METAL/' + creations[15].image) }}"
+            onclick="currentSlide(16)"
+            alt="{{ creations[15].titre }}"
+          />
+        </span>
+      </div>
     </div>
   </div>
-</div>
+</section>
 {% endblock %}

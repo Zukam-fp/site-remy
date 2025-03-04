@@ -10,8 +10,13 @@ main {
   flex: 1;
 }
 
+.detail-home {
+  padding-top: 3.5em;
+  padding-bottom: 0em;
+}
+
 .detail-con {
-  padding-top: 6.5em;
+  padding-top: 4.5em;
 }
 
 section {
@@ -39,7 +44,7 @@ body {
 
 body h2 {
   font-family: "Permanent Marker", serif;
-  margin-bottom: 80px;
+  margin-bottom: 35px;
 }
 
 header {
@@ -189,6 +194,10 @@ ul li ul li a {
   transition: all 0.5s ease;
 }
 
+.content {
+  flex: 1;
+}
+
 /* Section Hero */
 .hero {
   position: relative;
@@ -210,6 +219,7 @@ ul li ul li a {
   font-family: "Permanent Marker", serif;
   margin-bottom: 20px;
   animation: fadeInDown 1.5s ease-out;
+  opacity: 0.7;
 }
 
 .hero-subtitle {
@@ -223,7 +233,7 @@ ul li ul li a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 50em;
   background: var(--background-gradient);
   animation: zoomIn 10s infinite alternate;
   background-image: url(../images/MONSTERS/DSC_0231.JPG);
@@ -275,21 +285,6 @@ footer small {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-}
-
-.btn-retour {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-retour:hover {
-  background-color: #555;
 }
 
 /* Animation d'apparition */
@@ -388,7 +383,6 @@ footer small {
 
 .tableau-image img {
   width: 65%;
-  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -408,19 +402,51 @@ footer small {
   color: #555;
 }
 
-.btn-retour-tbl {
+.btn-retour-mask:hover {
+  border-bottom: 2px solid #702424;
+  background: #fff;
+  color: #702424;
+  text-shadow: 1px 1px 0 transparent;
+}
+
+.btn-retour-mask {
+  text-transform: uppercase;
+  margin: 0.1em 0.1em 0.45em;
+  padding: 0.4em 0.6em;
+  font-weight: 600;
+  border: 2px solid #702424;
+  -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
+  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #333;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background: #ff0000;
   color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  font-size: 0.75em;
+  margin-bottom: 5em;
+}
+
+.btn-retour-tbl {
+  text-transform: uppercase;
+  margin: 0.1em 0.1em 0.45em;
+  padding: 0.4em 0.6em;
+  font-weight: 600;
+  border: 2px solid #702424;
+  -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
+  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background: #ff0000;
+  color: #fff;
+  font-size: 0.75em;
 }
 
 .btn-retour-tbl:hover {
-  background-color: #555;
+  border-bottom: 2px solid #702424;
+  background: #fff;
+  color: #702424;
+  text-shadow: 1px 1px 0 transparent;
 }
 
 .tableau {
@@ -461,6 +487,143 @@ footer small {
 }
 
 /* Section de contact */
+.contact {
+  padding: 0;
+}
+
+.container-btn-conatct-info {
+  display: inline-grid;
+}
+
+.btn-contact-info:hover {
+  border-bottom: 2px solid #702424;
+  background: #fff;
+  color: #702424;
+  text-shadow: 1px 1px 0 transparent;
+}
+
+.btn-contact-info {
+  text-transform: uppercase;
+  margin: 0.1em 0.1em 0.45em;
+  padding: 0.4em 0.6em;
+  font-weight: 600;
+  border: 2px solid #702424;
+  -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
+  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background: #ff0000;
+  color: #fff;
+  font-size: 0.75em;
+}
+
+.btn-contact-info1:hover {
+  border-bottom: 2px solid #3b5998;
+  background: #fff;
+  color: #3b5998;
+  text-shadow: 1px 1px 0 transparent;
+}
+
+.btn-contact-info1 {
+  text-transform: uppercase;
+  margin: 0.1em 0.1em 0.45em;
+  padding: 0.4em 0.6em;
+  font-weight: 600;
+  border: 2px solid #3b5998;
+  -webkit-box-shadow: 1px 1px 0 #3b5998, 2px 2px 0 #3b5998, 3px 3px 0 #3b5998;
+  box-shadow: 1px 1px 0 #3b5998, 2px 2px 0 #3b5998, 3px 3px 0 #3b5998;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background: #0049ff;
+  color: #fff;
+  font-size: 0.75em;
+}
+
+.btn-contact-info2:hover {
+  border-bottom: 2px solid #8134af;
+  background: #fff;
+  color: #8134af;
+  text-shadow: 1px 1px 0 transparent;
+}
+
+.btn-contact-info2 {
+  text-transform: uppercase;
+  margin: 0.1em 0.1em 0.45em;
+  padding: 0.4em 0.6em;
+  font-weight: 600;
+  border: 2px solid #8134af;
+  -webkit-box-shadow: 1px 1px 0 #8134af, 2px 2px 0 #8134af, 3px 3px 0 #8134af;
+  box-shadow: 1px 1px 0 #8134af, 2px 2px 0 #8134af, 3px 3px 0 #8134af;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background: #dd2a7b;
+  color: #fff;
+  font-size: 0.75em;
+}
+
+.container-contact-info {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2em;
+  position: relative;
+}
+
+.container-contact-info:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+figcaption {
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  bottom: 0;
+  right: 0;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+}
+
+figcaption h1 {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-family: "Permanent Marker", serif;
+  font-style: normal;
+  font-size: xxx-large;
+}
+
+figcaption p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
+
+.full-screen figure {
+  margin: 0;
+}
+
+.back-img {
+  background-image: url(../images/MOTOGRAFF/PHOTO-2024-01-08-21-07-38-1.jpg);
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  min-height: 100vh;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5);
+}
+
 .contact-info {
   padding: 20px;
   max-width: 600px;
@@ -633,8 +796,8 @@ footer small {
 /* Vignettes */
 .demo {
   max-height: 65px;
-  -webkit-transition: all 0.3sease-out;
-  transition: all 0.3sease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
   border: 6px solid #fff;
   border: 0;
   overflow: clip;
@@ -657,17 +820,27 @@ footer small {
 
 .btn-prev,
 .btn-next {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  margin: 0.1em 0.1em 0.45em;
+  padding: 0.4em 0.6em;
+  font-weight: 600;
+  border: 2px solid #702424;
+  -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
+  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background: #ff0000;
+  color: #fff;
+  font-size: 0.75em;
 }
 
 .btn-prev:hover,
 .btn-next:hover {
-  background-color: #555;
+  border-bottom: 2px solid #702424;
+  background: #fff;
+  color: #702424;
+  text-shadow: 1px 1px 0 transparent;
 }
 
 .button-retour {

@@ -1,25 +1,28 @@
 {% extends "base.html" %} {% block title %}Masques-rémy{% endblock %} {% block
 content %}
-<section class="galerie-tbl fade-in-element">
-  <h2>MASKS</h2>
-  <div class="tableaux">
-    {% for masque in masques %}
-    <a
-      href="{{ url_for('masque', masque_id=masque.id) }}"
-      class="tableau"
-      data-category="{{ masque.categorie }}"
-    >
-      <div class="tableau">
-        <img
-          src="{{ url_for('static', filename='images/MASKINOX/' + masque.image) }}"
-          alt="{{ masque.titre }}"
-        />
-        <div class="tbl-details">
-          <h4>{{ masque.titre }}</h4>
+<section class="detail-con main">
+  <div class="galerie-tbl fade-in-element">
+    <h2>MASKS</h2>
+    <a href="/boutiques.html" class="btn-retour-mask">Retour aux sculptures</a>
+    <div class="tableaux">
+      {% for masque in masques %}
+      <a
+        href="{{ url_for('masque', masque_id=masque.id) }}"
+        class="tableau"
+        data-category="{{ masque.categorie }}"
+      >
+        <div class="tableau">
+          <img
+            src="{{ url_for('static', filename='images/MASKINOX/' + masque.image) }}"
+            alt="{{ masque.titre }}"
+          />
+          <div class="tbl-details">
+            <h4>{{ masque.titre }}</h4>
+          </div>
         </div>
-      </div>
-    </a>
-    {% endfor %}
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </section>
 {% endblock %}

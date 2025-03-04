@@ -1,26 +1,35 @@
-{% extends "base.html" %} {% block title %}Accueil - Mon Site Web{% endblock %}
-{% block content %}
-
-<div class="contact-info">
-  <h2>Informations de contact</h2>
-  <div class="contact-details">
-    <p>
-      <strong>Téléphone :</strong>
-      <a href="tel:+33123456789">+33 1 23 45 67 89</a>
-    </p>
-    <p>
-      <strong>Email :</strong>
-      <a href="mailto:artiste@example.com">artiste@example.com</a>
-    </p>
-    <p>
-      <strong>Instagram :</strong>
-      <a href="https://instagram.com/artiste" target="_blank">@artiste</a>
-    </p>
-    <p>
-      <strong>Facebook :</strong>
-      <a href="https://facebook.com/artiste" target="_blank">Page Facebook</a>
-    </p>
+{% extends "base.html" %} {% block title %}Contact - Remy{% endblock %} {% block
+content %} {% set hide_footer = False %}
+<section class="contact">
+  <div class="full-screen">
+    <figure>
+      <div class="back-img"></div>
+      <figcaption>
+        <div class="container-contact-info">
+          <h1>REMY PAGART</h1>
+          <p>Tel: 06 85 84 50 99</p>
+          <div class="container-btn-conatct-info">
+            <a class="btn-contact-info" href="mailto:artiste@example.com">
+              Mail
+            </a>
+            <a
+              class="btn-contact-info2"
+              href="https://instagram.com/artiste"
+              target="_blank"
+            >
+              Instagram
+            </a>
+            <a
+              class="btn-contact-info1"
+              href="https://facebook.com/artiste"
+              target="_blank"
+            >
+              Facebook
+            </a>
+          </div>
+        </div>
+      </figcaption>
+    </figure>
   </div>
-</div>
-
+</section>
 {% endblock %}

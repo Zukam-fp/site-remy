@@ -1,32 +1,30 @@
 {% extends "base.html" %} {% block title %}Tableau-Rémy{% endblock %} {% block
 content %}
-
-<section class="tableau-details fade-in-element">
-  <div class="tableau-image fade-in-element">
-    <img
-      src="{{ url_for('static', filename='images/photos_TABLOS_site/' + tableau.image) }}"
-      alt="{{ tableau.titre }}"
-    />
-  </div>
-  <div class="tableau-info fade-in-element">
-    <h2>{{ tableau.titre }}</h2>
-    <p>{{ tableau.description }}</p>
-    <div class="navigation-buttons">
-      <a
-        href="{{ url_for('tableau', tableau_id=prev_tableau_id) }}"
-        class="btn-prev"
-        >❮ Prev</a
-      >
-      <a
-        href="{{ url_for('tableau', tableau_id=next_tableau_id) }}"
-        class="btn-next"
-        >Next ❯</a
-      >
+<section class="detail-con main">
+  <div class="tableau-details fade-in-element">
+    <div class="tableau-image fade-in-element">
+      <img
+        src="{{ url_for('static', filename='images/photos_TABLOS_site/' + tableau.image) }}"
+        alt="{{ tableau.titre }}"
+      />
     </div>
-    <a href="/tableaux" class="btn-retour-tbl fade-in-element"
-      >Retour aux tableaux</a
-    >
+    <div class="tableau-info fade-in-element">
+      <h2>{{ tableau.titre }}</h2>
+      <p>{{ tableau.description }}</p>
+      <div class="navigation-buttons">
+        <a
+          href="{{ url_for('tableau', tableau_id=prev_tableau_id) }}"
+          class="btn-prev"
+          >❮ Prev</a
+        >
+        <a
+          href="{{ url_for('tableau', tableau_id=next_tableau_id) }}"
+          class="btn-next"
+          >Next ❯</a
+        >
+      </div>
+      <a href="/tableaux" class="btn-retour-tbl">Retour aux tableaux</a>
+    </div>
   </div>
 </section>
-
 {% endblock %}

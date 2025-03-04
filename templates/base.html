@@ -8,6 +8,11 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/images/Capture_d_écran_4-3-2025_141659_turbologo.com-removebg-preview.png"
+    />
   </head>
   <body>
     <header>
@@ -48,18 +53,17 @@
       </nav>
     </header>
     <div class="content">
-      <main>
-        <section class="detail-con main">
-          {% block content %}{% endblock %}
-        </section>
-      </main>
+      <main>{% block content %}{% endblock %}</main>
     </div>
 
+    <!-- Footer conditionnel -->
+    {% if hide_footer %}
     <footer>
       <div class="container-footer">
         <small> &copy; 2025 Rémy pagart. Tous droits réservés. </small>
       </div>
     </footer>
+    {% endif %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");

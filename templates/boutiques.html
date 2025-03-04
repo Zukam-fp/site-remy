@@ -1,11 +1,12 @@
 {% extends "base.html" %} {% block title %}Boutiques-Rémy{% endblock %} {% block
 content %}
-<section class="galerie-tbl fade-in-element">
-  <h2>Boutiques</h2>
-  <div class="tableaux">
-    {% for boutique in boutiques%}
-    <a
-      href="
+<section class="detail-con main">
+  <div class="galerie-tbl fade-in-element">
+    <h2>Boutiques</h2>
+    <div class="tableaux">
+      {% for boutique in boutiques%}
+      <a
+        href="
         {% if boutique.titre == 'Boutique 1' %}
           {{ url_for('shops') }}
         {% elif boutique.titre == 'Boutique 2' %}
@@ -19,20 +20,21 @@ content %}
         {% else %}
           {{ url_for('boutiques', boutique_id=boutique.id) }}
         {% endif %}"
-      class="tableau"
-      data-category="{{ boutique.categorie }}"
-    >
-      <div class="tableau">
-        <img
-          src="{{ url_for('static', filename='/images/ARCHI/Shops/' + boutique.image) }}"
-          alt="{{ boutique.titre }}"
-        />
-        <div class="tbl-details">
-          <h4>{{ boutique.titre }}</h4>
+        class="tableau"
+        data-category="{{ boutique.categorie }}"
+      >
+        <div class="tableau">
+          <img
+            src="{{ url_for('static', filename='/images/ARCHI/Shops/' + boutique.image) }}"
+            alt="{{ boutique.titre }}"
+          />
+          <div class="tbl-details">
+            <h4>{{ boutique.titre }}</h4>
+          </div>
         </div>
-      </div>
-    </a>
-    {% endfor %}
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </section>
 {% endblock %}

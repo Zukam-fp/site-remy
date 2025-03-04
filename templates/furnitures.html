@@ -1,64 +1,64 @@
 {% extends "base.html" %} {% block title %}Furniture-Rémy{% endblock %} {% block
 content %}
-
-<div class="container">
-  <div class="detail-info">
-    <h2>FURNITURES</h2>
-    <a href="/sculptures.html" class="btn-retour-tbl fade-in-element"
-      >Retour aux sculptures</a
-    >
-  </div>
-
-  <div class="gallery-con">
-    <div class="mySlides">
-      <div class="numbertext">1 / 6</div>
-      <img
-        src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[0].image) }}"
-      />
+<section class="detail-con main">
+  <div class="container">
+    <div class="detail-info">
+      <h2>FURNITURES</h2>
+      <a href="/sculptures.html" class="btn-retour-tbl"
+        >Retour aux sculptures</a
+      >
     </div>
 
-    <div class="mySlides">
-      <div class="numbertext">2 / 6</div>
-      <img
-        src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[1].image) }}"
-      />
-    </div>
-
-    <!-- Boutons de navigation -->
-    <div class="gallery-button">
-      <div class="button-prev">
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-      </div>
-      <div class="button-next">
-        <a class="next" onclick="plusSlides(1)">❯</a>
-      </div>
-    </div>
-
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-    <!-- Vignettes furnitures -->
-    <div class="row">
-      <span class="column">
+    <div class="gallery-con">
+      <div class="mySlides">
+        <div class="numbertext">1 / 6</div>
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[0].image) }}"
-          onclick="currentSlide(1)"
-          alt="{{ furnitures[0].titre }}"
         />
-      </span>
+      </div>
 
-      <span class="column">
+      <div class="mySlides">
+        <div class="numbertext">2 / 6</div>
         <img
-          class="demo cursor"
           src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[1].image) }}"
-          onclick="currentSlide(2)"
-          alt="{{ furnitures[1].titre }}"
         />
-      </span>
+      </div>
+
+      <!-- Boutons de navigation -->
+      <div class="gallery-button">
+        <div class="button-prev">
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+        </div>
+        <div class="button-next">
+          <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+      </div>
+
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+
+      <!-- Vignettes furnitures -->
+      <div class="row">
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[0].image) }}"
+            onclick="currentSlide(1)"
+            alt="{{ furnitures[0].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[1].image) }}"
+            onclick="currentSlide(2)"
+            alt="{{ furnitures[1].titre }}"
+          />
+        </span>
+      </div>
     </div>
   </div>
-</div>
-
+</section>
 {% endblock %}
