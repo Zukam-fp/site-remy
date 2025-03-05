@@ -30,17 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
 let slideIndex = 1;
 showSlides(slideIndex);
 
-// Fonction pour naviguer entre les slides
 function plusSlides(n) {
   showSlides((slideIndex += n));
 }
 
-// Fonction pour afficher un slide spécifique
 function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
-// Fonction pour afficher les slides
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");

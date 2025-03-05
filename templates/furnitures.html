@@ -11,20 +11,47 @@ content %}
 
     <div class="gallery-con">
       <div class="mySlides">
-        <div class="numbertext">1 / 6</div>
         <img
           src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[0].image) }}"
         />
       </div>
 
       <div class="mySlides">
-        <div class="numbertext">2 / 6</div>
         <img
           src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[1].image) }}"
         />
       </div>
 
-      <!-- Boutons de navigation -->
+      <div class="mySlides">
+        <img
+          src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[2].image) }}"
+        />
+      </div>
+
+      <div class="mySlides">
+        <img
+          src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[3].image) }}"
+        />
+      </div>
+
+      <div class="mySlides">
+        <img
+          src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[4].image) }}"
+        />
+      </div>
+
+      <div class="mySlides">
+        <img
+          src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[5].image) }}"
+        />
+      </div>
+
+      <div class="mySlides">
+        <img
+          src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[6].image) }}"
+        />
+      </div>
+
       <div class="gallery-button">
         <div class="button-prev">
           <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -38,7 +65,6 @@ content %}
         <p id="caption"></p>
       </div>
 
-      <!-- Vignettes furnitures -->
       <div class="row">
         <span class="column">
           <img
@@ -55,6 +81,51 @@ content %}
             src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[1].image) }}"
             onclick="currentSlide(2)"
             alt="{{ furnitures[1].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[2].image) }}"
+            onclick="currentSlide(3)"
+            alt="{{ furnitures[2].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[3].image) }}"
+            onclick="currentSlide(4)"
+            alt="{{ furnitures[3].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[4].image) }}"
+            onclick="currentSlide(5)"
+            alt="{{ furnitures[4].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[5].image) }}"
+            onclick="currentSlide(6)"
+            alt="{{ furnitures[5].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/FURNITURES/' + furnitures[6].image) }}"
+            onclick="currentSlide(7)"
+            alt="{{ furnitures[6].titre }}"
           />
         </span>
       </div>

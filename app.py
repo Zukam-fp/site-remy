@@ -167,6 +167,9 @@ def monsters():
         {"id": 9, "titre": "Monster 9", "image": "IMG_9909.JPG", "description": "Monster 9."},
         {"id": 10, "titre": "Monster 10", "image": "Rémy911B-01.jpg", "description": "Monster 10."},
         {"id": 11, "titre": "Monster 11", "image": "Rémy911B-04.jpg", "description": "Monster 11."},
+        {"id": 12, "titre": "Monster 12", "image": "Colys2012-28.jpg", "description": "Monster 12."},
+        {"id": 13, "titre": "Monster 13", "image": "GNAP!- copie.jpg", "description": "Monster 13."},
+        {"id": 14, "titre": "Monster 14", "image": "GRRR! 1- copie.jpg", "description": "Monster 14."},
     ]
 
     return render_template('monsters.html', monsters=monsters)
@@ -254,13 +257,30 @@ def furnitures():
     furnitures = [
         {"id": 1, "titre": "Furniture 1", "image": "Armoire métal.jpeg", "description": "Furniture 1."},
         {"id": 2, "titre": "Furniture 2", "image": "Chaise métal.jpeg", "description": "Furniture 2."},
+        {"id": 3, "titre": "Furniture 3", "image": "DSC00031.JPG", "description": "Furniture 3."},
+        {"id": 4, "titre": "Furniture 4", "image": "DSC00126.JPG", "description": "Furniture 4."},
+        {"id": 5, "titre": "Furniture 5", "image": "Photo REMY 004.jpg", "description": "Furniture 5."},
+        {"id": 6, "titre": "Furniture 6", "image": "Photo REMY 012.jpg", "description": "Furniture 6."},
+        {"id": 7, "titre": "Furniture 7", "image": "Photo REMY 013.jpg", "description": "Furniture 7."},
     ]
 
     return render_template('furnitures.html', furnitures=furnitures)
 
+
+
+
 @app.route('/motos.html')
 def motos():
-    return render_template('motos.html')
+    motos = [
+        {"id": 1, "titre": "moto 1", "image": "30mars0004.jpg", "description": "moto 1."},
+        {"id": 2, "titre": "moto 2", "image": "30mars0025.jpg", "description": "moto 2."},
+        {"id": 3, "titre": "moto 3", "image": "EmptyName 36.jpg", "description": "moto 3."},
+        {"id": 4, "titre": "moto 4", "image": "EmptyName 37a.jpg", "description": "moto 4."},
+        {"id": 5, "titre": "moto 5", "image": "muto 1.jpg", "description": "moto 5."},
+        {"id": 6, "titre": "moto 6", "image": "muto.jpg", "description": "moto 6."},
+        {"id": 7, "titre": "moto 7", "image": "tracto reservoir rouge.jpg", "description": "moto 7."},
+    ]
+    return render_template('motos.html', motos=motos)
 
 
 
@@ -272,7 +292,7 @@ def boutiques():
     boutiques = [
         {"id": 1, "titre": "Boutique 1", "image": "Bar L'Illustration Lille 1.jpeg", "description": "Boutique 1."},
         {"id": 2, "titre": "Boutique 2", "image": "Boutique IRO Lille +.jpeg", "description": "Boutique 2."},
-        {"id": 3, "titre": "Boutique 3", "image": "Boutique OSIRIS Douai 1.jpeg", "description": "Boutique 3."},
+        {"id": 3, "titre": "Boutique 3", "image": "Boutique-OSIRIS-Douai-1.jpeg", "description": "Boutique 3."},
         {"id": 4, "titre": "Boutique 4", "image": "Boutique ZABOU Lille 1.jpeg", "description": "Boutique 4."},
         {"id": 5, "titre": "Boutique 5", "image": "détails VIRUS 2.jpeg", "description": "Boutique 5."},
     ]
@@ -307,7 +327,7 @@ def shops2():
 @app.route('/shops3.html')
 def shops3():
     shops3 = [
-        {"id": 1, "titre": "Shop 1", "image": "Boutique OSIRIS Douai 1.jpeg", "description": "Shop 1."},
+        {"id": 1, "titre": "Shop 1", "image": "Boutique-OSIRIS-Douai-1.jpeg", "description": "Shop 1."},
         {"id": 2, "titre": "Shop 2", "image": "Boutique OSIRIS Douai 2.jpeg", "description": "Shop 2."},
         {"id": 3, "titre": "Shop 3", "image": "Boutique OSIRIS Douai 3.jpeg", "description": "Shop 3."},
         {"id": 4, "titre": "Shop 4", "image": "Boutique OSIRIS Douai 4.jpeg", "description": "Shop 4."},

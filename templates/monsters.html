@@ -76,7 +76,24 @@ content %}
         />
       </div>
 
-      <!-- Boutons de navigation -->
+      <div class="mySlides">
+        <img
+          src="{{ url_for('static', filename='images/MONSTERS/' + monsters[11].image) }}"
+        />
+      </div>
+
+      <div class="mySlides">
+        <img
+          src="{{ url_for('static', filename='images/MONSTERS/' + monsters[12].image) }}"
+        />
+      </div>
+
+      <div class="mySlides">
+        <img
+          src="{{ url_for('static', filename='images/MONSTERS/' + monsters[13].image) }}"
+        />
+      </div>
+
       <div class="gallery-button">
         <div class="button-prev">
           <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -90,7 +107,6 @@ content %}
         <p id="caption"></p>
       </div>
 
-      <!-- Vignettes monsters -->
       <div class="row">
         <span class="column">
           <img
@@ -188,6 +204,33 @@ content %}
             src="{{ url_for('static', filename='images/MONSTERS/' + monsters[10].image) }}"
             onclick="currentSlide(11)"
             alt="{{ monsters[10].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/MONSTERS/' + monsters[11].image) }}"
+            onclick="currentSlide(12)"
+            alt="{{ monsters[11].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/MONSTERS/' + monsters[12].image) }}"
+            onclick="currentSlide(13)"
+            alt="{{ monsters[12].titre }}"
+          />
+        </span>
+
+        <span class="column">
+          <img
+            class="demo cursor"
+            src="{{ url_for('static', filename='images/MONSTERS/' + monsters[13].image) }}"
+            onclick="currentSlide(14)"
+            alt="{{ monsters[13].titre }}"
           />
         </span>
       </div>
