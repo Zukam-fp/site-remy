@@ -23,7 +23,6 @@ section {
   padding: 2em 0 4em;
 }
 
-/* Style général */
 body {
   position: relative;
   background: #fff;
@@ -61,7 +60,6 @@ header h1 {
   color: white;
 }
 
-/* Logo "REMY PAGART" */
 .logo {
   float: left;
   margin-right: -190px;
@@ -84,9 +82,7 @@ header h1 {
   color: #e7973c;
 }
 
-/* Clearfix pour gérer le flottement */
 .primary-navigation::after {
-  /* content: ""; */
   display: table;
   clear: both;
 }
@@ -198,7 +194,6 @@ ul li ul li a {
   flex: 1;
 }
 
-/* Section Hero */
 .hero {
   position: relative;
   height: 100vh;
@@ -250,7 +245,6 @@ ul li ul li a {
   }
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -262,7 +256,6 @@ ul li ul li a {
   }
 }
 
-/* Footer */
 footer {
   position: absolute;
   bottom: 0;
@@ -287,7 +280,6 @@ footer small {
   position: relative;
 }
 
-/* Animation d'apparition */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -353,7 +345,6 @@ footer small {
   transform: translateY(0);
 }
 
-/* Titre de l'œuvre */
 .tableau .tbl-details h3 {
   margin: 0 0 10px;
   font-size: 1.5em;
@@ -364,7 +355,6 @@ footer small {
   color: inherit;
 }
 
-/* Page détaillée d'une œuvre */
 .tableau-details {
   display: flex;
   flex-wrap: wrap;
@@ -454,7 +444,6 @@ footer small {
   animation-fill-mode: both;
 }
 
-/* Délai d'animation pour chaque œuvre */
 .tableau:nth-child(1) {
   animation-delay: 0.1s;
 }
@@ -486,7 +475,6 @@ footer small {
   animation-fill-mode: both;
 }
 
-/* Section de contact */
 .contact {
   padding: 0;
 }
@@ -514,52 +502,6 @@ footer small {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   background: #ff0000;
-  color: #fff;
-  font-size: 0.75em;
-}
-
-.btn-contact-info1:hover {
-  border-bottom: 2px solid #3b5998;
-  background: #fff;
-  color: #3b5998;
-  text-shadow: 1px 1px 0 transparent;
-}
-
-.btn-contact-info1 {
-  text-transform: uppercase;
-  margin: 0.1em 0.1em 0.45em;
-  padding: 0.4em 0.6em;
-  font-weight: 600;
-  border: 2px solid #3b5998;
-  -webkit-box-shadow: 1px 1px 0 #3b5998, 2px 2px 0 #3b5998, 3px 3px 0 #3b5998;
-  box-shadow: 1px 1px 0 #3b5998, 2px 2px 0 #3b5998, 3px 3px 0 #3b5998;
-  display: inline-block;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-  background: #0049ff;
-  color: #fff;
-  font-size: 0.75em;
-}
-
-.btn-contact-info2:hover {
-  border-bottom: 2px solid #8134af;
-  background: #fff;
-  color: #8134af;
-  text-shadow: 1px 1px 0 transparent;
-}
-
-.btn-contact-info2 {
-  text-transform: uppercase;
-  margin: 0.1em 0.1em 0.45em;
-  padding: 0.4em 0.6em;
-  font-weight: 600;
-  border: 2px solid #8134af;
-  -webkit-box-shadow: 1px 1px 0 #8134af, 2px 2px 0 #8134af, 3px 3px 0 #8134af;
-  box-shadow: 1px 1px 0 #8134af, 2px 2px 0 #8134af, 3px 3px 0 #8134af;
-  display: inline-block;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-  background: #dd2a7b;
   color: #fff;
   font-size: 0.75em;
 }
@@ -613,7 +555,7 @@ figcaption p {
 }
 
 .back-img {
-  background-image: url(../images/MOTOGRAFF/PHOTO-2024-01-08-21-07-38-1.jpg);
+  background-image: url(../images/ARCHI/Shops/Boutique-OSIRIS-Douai-1.jpeg);
   position: relative;
   width: 100%;
   min-height: 100%;
@@ -670,7 +612,6 @@ figcaption p {
   transform: translateY(0);
 }
 
-/* Conteneur principal */
 .container {
   max-width: 80%;
   margin-left: auto;
@@ -684,8 +625,6 @@ figcaption p {
   margin: 3em 0 0;
 }
 
-/* Slides */
-
 .mySlides img {
   max-height: 29em;
   max-width: 100%;
@@ -694,8 +633,6 @@ figcaption p {
 .cursor {
   cursor: pointer;
 }
-
-/* Boutons de navigation */
 
 .button-prev {
   color: #6e6e6e;
@@ -766,16 +703,6 @@ figcaption p {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Numéro de l'image */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Container for image text */
 .caption-container {
   margin: 1.15em 0;
   font-size: 0.8em;
@@ -787,13 +714,11 @@ figcaption p {
   clear: both;
 }
 
-/* Six columns side by side */
 .column {
   margin-left: 9px;
   height: 65px;
 }
 
-/* Vignettes */
 .demo {
   max-height: 65px;
   -webkit-transition: all 0.3s ease-out;
@@ -811,7 +736,6 @@ figcaption p {
   opacity: 1;
 }
 
-/* Boutons de navigation */
 .navigation-buttons {
   display: flex;
   justify-content: space-evenly;
