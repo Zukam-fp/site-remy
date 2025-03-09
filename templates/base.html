@@ -30,21 +30,21 @@
           <li>
             <a href="#">Work</a>
             <ul class="dropdown" &dtrif;>
-              <li><a href="/tableaux">Paintings</a></li>
+              <li><a href="/tableaux">Painting</a></li>
               <li>
-                <a href="/sculptures.html">Sculptures</a>
+                <a href="/sculptures.html">Sculpture</a>
               </li>
               <li>
-                <a href="#">Designs</a>
+                <a href="#">Design</a>
                 <ul class="dropdown2">
-                  <li><a href="/furnitures.html">Furnitures</a></li>
+                  <li><a href="/furnitures.html">Furniture</a></li>
                   <li><a href="/motos.html">Bikes</a></li>
                 </ul>
               </li>
               <li>
                 <a href="#">Archi</a>
                 <ul class="dropdown2">
-                  <li><a href="/boutiques.html">Boutiques</a></li>
+                  <li><a href="/boutiques.html">Boutique</a></li>
                   <li><a href="/houses.html">House</a></li>
                 </ul>
               </li>
@@ -59,16 +59,18 @@
       <main>{% block content %}{% endblock %}</main>
     </div>
 
-    {% if hide_footer %}
     <footer>
       <div class="container-footer">
         <small> &copy; 2025 Rémy pagart. Tous droits réservés. </small>
       </div>
     </footer>
-    {% endif %}
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+    </style>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Permanent+Marker&display=swap");
     </style>
   </body>
 </html>

@@ -1,30 +1,35 @@
 {% extends "base.html" %} {% block title %}Masque-rémy{% endblock %} {% block
 content %}
 <section class="detail-con main">
-  <div class="tableau-details fade-in-element">
-    <div class="tableau-image fade-in-element">
+  <div class="tableau-details">
+    <div class="masque-image">
+      <div class="tableau-info">
+        <h2>{{ masque.titre }}</h2>
+      </div>
+      <!-- Bouton Retour en haut à gauche -->
+      <a href="/masques.html" class="btn-retour-tbl">
+        <i class="fa-solid fa-rotate-left"></i>
+      </a>
+
+      <!-- Bouton Prev à gauche de l'image -->
+      <a
+        href="{{ url_for('masque', masque_id=prev_masque_id) }}"
+        class="btn-prev"
+        >❮</a
+      >
+
+      <!-- Image du masque -->
       <img
         src="{{ url_for('static', filename='images/MASKINOX/' + masque.image) }}"
         alt="{{ masque.titre }}"
+        class="tbl-img fade-in-element"
       />
-    </div>
-    <div class="tableau-info fade-in-element">
-      <h2>{{ masque.titre }}</h2>
-      <p>{{ masque.description }}</p>
-      <div class="navigation-buttons">
-        <a
-          href="{{ url_for('masque', masque_id=prev_masque_id) }}"
-          class="btn-prev"
-          >❮ Prev</a
-        >
-        <a
-          href="{{ url_for('masque', masque_id=next_masque_id) }}"
-          class="btn-next"
-          >Next ❯</a
-        >
-      </div>
-      <a href="/masques.html" class="btn-retour-tbl fade-in-element"
-        >Retour aux masques</a
+
+      <!-- Bouton Next à droite de l'image -->
+      <a
+        href="{{ url_for('masque', masque_id=next_masque_id) }}"
+        class="btn-next"
+        >❯</a
       >
     </div>
   </div>

@@ -4,7 +4,9 @@ content %}
   <div class="container">
     <div class="detail-info">
       <h2>Boutiques</h2>
-      <a href="/boutiques.html" class="btn-retour-tbl">Retour aux boutiques</a>
+      <a href="/boutiques.html" class="btn-retour-tbl"
+        ><i class="fa-solid fa-rotate-left"></i
+      ></a>
     </div>
 
     <div class="gallery-con">
@@ -17,12 +19,6 @@ content %}
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops2[1].image) }}"
-        />
-      </div>
-
-      <div class="mySlides">
-        <img
-          src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops2[2].image) }}"
         />
       </div>
 
@@ -55,15 +51,6 @@ content %}
             src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops2[1].image) }}"
             onclick="currentSlide(2)"
             alt="{{ shops2[1].titre }}"
-          />
-        </span>
-
-        <span class="column">
-          <img
-            class="demo cursor"
-            src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops2[2].image) }}"
-            onclick="currentSlide(3)"
-            alt="{{ shops2[2].titre }}"
           />
         </span>
       </div>

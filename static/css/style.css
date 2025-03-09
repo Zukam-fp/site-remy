@@ -1,7 +1,6 @@
 html {
   position: relative;
   height: 100%;
-  font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
   display: block;
 }
@@ -17,6 +16,12 @@ main {
 
 .detail-con {
   padding-top: 4.5em;
+}
+
+.detail-info h3 {
+  font-family: "Caveat";
+  margin-top: -45px;
+  color: grey;
 }
 
 section {
@@ -44,6 +49,7 @@ body {
 body h2 {
   font-family: "Permanent Marker", serif;
   margin-bottom: 35px;
+  font-size: xxx-large;
 }
 
 header {
@@ -70,7 +76,7 @@ header h1 {
 
 .logo a {
   color: #fff;
-  font-family: "Permanent Marker", serif;
+  font-family: "Permanent Marker";
   font-size: 20px;
   font-weight: bold;
   text-decoration: none;
@@ -98,6 +104,7 @@ header h1 {
   margin-inline-end: 0px;
   padding-inline-start: 40px;
   unicode-bidi: isolate;
+  font-family: sans-serif;
 }
 
 .primary-navigation {
@@ -167,7 +174,7 @@ header h1 {
 
   ul li ul li a:hover {
     padding-left: 10px;
-    border-left: 2px solid #3ca0e7;
+    border-left: 2px solid #e7973c;
     transition: all 0.3s ease;
   }
 
@@ -182,7 +189,7 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: #3ca0e7;
+    color: #fff;
   }
 }
 
@@ -209,29 +216,47 @@ ul li ul li a {
   z-index: 2;
 }
 
-.hero-title {
+.remy-pagart {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 456px;
+}
+
+.hero-remy {
   font-size: 4.5em;
   font-family: "Permanent Marker", serif;
   margin-bottom: 20px;
-  animation: fadeInDown 1.5s ease-out;
+  animation: fadeInDown 1.5sease-out;
+  margin-right: 21px;
+}
+
+.hero-pagart {
+  font-size: 4.5em;
+  font-family: "Permanent Marker", serif;
+  margin-bottom: 0px;
+  animation: fadeInDown 1.5sease-out;
   opacity: 0.7;
+  margin-right: 0px;
+  color: #000;
 }
 
 .hero-subtitle {
   font-size: 1.5em;
   margin-bottom: 40px;
-  animation: fadeInUp 1.5s ease-out;
+  animation: fadeInUp 1.5sease-out;
+  margin-top: -40px;
+  margin-left: 695px;
+  color: #333;
 }
 
 .hero-background {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 50em;
+  width: 63%;
+  height: 52em;
   background: var(--background-gradient);
-  animation: zoomIn 10s infinite alternate;
-  background-image: url(../images/MONSTERS/DSC_0231.JPG);
+  background-image: url(../images/Rémy911B-04.png);
   background-position: center;
   background-size: cover;
 }
@@ -268,7 +293,7 @@ footer {
 footer small {
   font-size: 12px;
   text-align: center;
-  color: #c8c8c8;
+  color: darkslategrey;
   display: block;
 }
 
@@ -300,6 +325,15 @@ footer small {
   padding: 20px;
   text-align: center;
   margin-top: 0px;
+}
+
+.galerie-tbl h3 {
+  font-family: "Caveat";
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 40px;
+  margin-top: -50px;
+  color: grey;
 }
 
 .tableaux {
@@ -339,6 +373,7 @@ footer small {
   padding: 15px;
   transform: translateY(100%);
   transition: transform 0.3s ease;
+  font-family: "Caveat";
 }
 
 .tableau:hover .tbl-details {
@@ -357,88 +392,122 @@ footer small {
 
 .tableau-details {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* Aligner les éléments verticalement */
+  align-items: center; /* Centrer horizontalement */
   gap: 20px;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 
 .tableau-image {
   flex: 1;
-  min-width: 300px;
+  width: 75%;
   text-align: center;
+  position: relative; /* Ajouté pour positionner les boutons */
+  animation: fadeIn 0.5s ease-out;
+  animation-fill-mode: both;
 }
 
 .tableau-image img {
-  width: 65%;
+  width: 50%;
+  max-width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .tableau-info {
-  flex: 1;
-  min-width: 300px;
+  width: 100%; /* Prendre toute la largeur */
+  text-align: center; /* Centrer le texte */
 }
 
 .tableau-info h2 {
   font-size: 2em;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-top: 0;
 }
 
 .tableau-info p {
   font-size: 1.2em;
   line-height: 1.6;
   color: #555;
+  margin: 0;
+}
+
+.masque-image {
+  flex: 1;
+  width: 75%;
+  text-align: center;
+  position: relative;
+}
+
+.masque-image img {
+  width: 45%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.masque-image h2 {
+  margin-bottom: 40px;
 }
 
 .btn-retour-mask:hover {
-  border-bottom: 2px solid #702424;
-  background: #fff;
-  color: #702424;
+  border-bottom: 2px solid black;
+  background: black;
+  color: #fff;
   text-shadow: 1px 1px 0 transparent;
 }
 
 .btn-retour-mask {
+  background: #fff;
+  border-radius: 1.4em;
+  border: 2px solid #000;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+  height: 2.8em;
+  width: 2.8em;
+  margin: 0;
+  line-height: 2.5em;
+  outline: 0 !important;
   text-transform: uppercase;
   margin: 0.1em 0.1em 0.45em;
-  padding: 0.4em 0.6em;
   font-weight: 600;
-  border: 2px solid #702424;
-  -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
-  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
   display: inline-block;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  background: #ff0000;
-  color: #fff;
-  font-size: 0.75em;
-  margin-bottom: 5em;
+  color: black;
+  font-size: 0.8em;
+  position: absolute;
+  top: 0;
+  left: 72px;
 }
 
 .btn-retour-tbl {
+  background: #fff;
+  border-radius: 1.4em;
+  border: 2px solid #000;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+  height: 2.8em;
+  width: 2.8em;
+  margin: 0;
+  line-height: 2.5em;
+  outline: 0 !important;
   text-transform: uppercase;
-  margin: 0.1em 0.1em 0.45em;
-  padding: 0.4em 0.6em;
   font-weight: 600;
-  border: 2px solid #702424;
-  -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
-  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
   display: inline-block;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  background: #ff0000;
-  color: #fff;
-  font-size: 0.75em;
+  color: black;
+  font-size: 0.8em;
+  position: absolute; /* Position absolue pour placer le bouton */
+  top: 0; /* Aligner en haut */
+  left: 0; /* Aligner à gauche */
+  z-index: 1; /* S'assurer qu'il est au-dessus de l'image */
 }
 
 .btn-retour-tbl:hover {
-  border-bottom: 2px solid #702424;
-  background: #fff;
-  color: #702424;
+  background: #333;
+  color: #fff;
   text-shadow: 1px 1px 0 transparent;
 }
-
 .tableau {
   animation: fadeIn 0.5s ease-out;
   animation-fill-mode: both;
@@ -465,9 +534,9 @@ footer small {
   transition: opacity 0.3s ease;
 }
 
-.tableau-image {
-  animation: fadeIn 0.5s ease-out;
-  animation-fill-mode: both;
+.news-con {
+  text-align: center;
+  font-family: "Permanent Marker";
 }
 
 .contact-details {
@@ -479,14 +548,10 @@ footer small {
   padding: 0;
 }
 
-.container-btn-conatct-info {
-  display: inline-grid;
-}
-
 .btn-contact-info:hover {
-  border-bottom: 2px solid #702424;
+  /* border-bottom: 2px solid #702424; */
   background: #fff;
-  color: #702424;
+  color: black;
   text-shadow: 1px 1px 0 transparent;
 }
 
@@ -495,13 +560,13 @@ footer small {
   margin: 0.1em 0.1em 0.45em;
   padding: 0.4em 0.6em;
   font-weight: 600;
-  border: 2px solid #702424;
+  /* border: 2px solid #702424;
   -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
-  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
+  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424; */
   display: inline-block;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  background: #ff0000;
+  /* background: #ff0000; */
   color: #fff;
   font-size: 0.75em;
 }
@@ -643,7 +708,7 @@ figcaption p {
   position: absolute;
   top: 150px;
   height: 100%;
-  left: -42px;
+  left: 65px;
   cursor: pointer;
 }
 
@@ -656,7 +721,7 @@ figcaption p {
   position: absolute;
   top: 150px;
   height: 100%;
-  right: -42px;
+  right: 65px;
   cursor: pointer;
 }
 
@@ -744,26 +809,38 @@ figcaption p {
 
 .btn-prev,
 .btn-next {
+  background: #fff;
+  border-radius: 1.4em;
+  border: 2px solid #000;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+  height: 2.8em;
+  width: 2.8em;
+  margin: 0;
+  line-height: 2.5em;
+  outline: 0 !important;
   text-transform: uppercase;
-  margin: 0.1em 0.1em 0.45em;
-  padding: 0.4em 0.6em;
   font-weight: 600;
-  border: 2px solid #702424;
-  -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
-  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
   display: inline-block;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  background: #ff0000;
-  color: #fff;
-  font-size: 0.75em;
+  color: #000;
+  font-size: 0.8em;
+  position: absolute; /* Position absolue pour placer les boutons */
+  top: 50%; /* Centrer verticalement */
+  transform: translateY(-50%); /* Ajuster le centrage vertical */
+}
+
+.btn-prev {
+  left: -50px; /* Bouton Prev à gauche */
+}
+
+.btn-next {
+  right: -50px; /* Bouton Next à droite */
 }
 
 .btn-prev:hover,
 .btn-next:hover {
-  border-bottom: 2px solid #702424;
-  background: #fff;
-  color: #702424;
+  background: #333;
+  color: #fff;
   text-shadow: 1px 1px 0 transparent;
 }
 

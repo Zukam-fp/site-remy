@@ -7,15 +7,15 @@ content %}
       {% for boutique in boutiques%}
       <a
         href="
-        {% if boutique.titre == 'Boutique 1' %}
+        {% if boutique.titre == 'ILLUSTRATION' %}
           {{ url_for('shops') }}
-        {% elif boutique.titre == 'Boutique 2' %}
+        {% elif boutique.titre == 'IRO' %}
           {{ url_for('shops2') }}
-        {% elif boutique.titre == 'Boutique 3' %}
+        {% elif boutique.titre == 'OSIRIS' %}
           {{ url_for('shops3') }}
-        {% elif boutique.titre == 'Boutique 4' %}
+        {% elif boutique.titre == 'ZABOU' %}
           {{ url_for('shops4') }}
-        {% elif boutique.titre == 'Boutique 5' %}
+        {% elif boutique.titre == 'VIRUS' %}
           {{ url_for('shops5') }}
         {% else %}
           {{ url_for('boutiques', boutique_id=boutique.id) }}
