@@ -44,7 +44,7 @@ body {
 }
 
 body h2 {
-  font-family: "Permanent Marker", serif;
+  font-family: "Permanent Marker";
   margin-bottom: 35px;
   font-size: 69px;
   margin-top: 0;
@@ -222,7 +222,7 @@ ul li ul li a {
 
 .hero-remy {
   font-size: 5em;
-  font-family: "Permanent Marker", serif;
+  font-family: "Permanent Marker";
   /* animation: fadeInDown 1.5sease-out; */
   color: #000;
   margin: 0;
@@ -231,7 +231,7 @@ ul li ul li a {
 
 .hero-pagart {
   font-size: 6em;
-  font-family: "Permanent Marker", serif;
+  font-family: "Permanent Marker";
   /* animation: fadeInDown 1.5sease-out; */
   color: #000;
   margin: 0;
@@ -241,7 +241,7 @@ ul li ul li a {
   font-size: 2em;
   /* animation: fadeInUp 1.5sease-out; */
   color: #333;
-  font-family: "Permanent Marker", serif;
+  font-family: "Permanent Marker";
   margin: 0;
 }
 
@@ -817,17 +817,17 @@ figcaption p {
   transition: all 0.3s ease-out;
   color: #000;
   font-size: 0.8em;
-  position: absolute; /* Position absolue pour placer les boutons */
-  top: 50%; /* Centrer verticalement */
-  transform: translateY(-50%); /* Ajuster le centrage vertical */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .btn-prev {
-  left: -50px; /* Bouton Prev à gauche */
+  left: -50px;
 }
 
 .btn-next {
-  right: -50px; /* Bouton Next à droite */
+  right: -50px;
 }
 
 .btn-prev:hover,

@@ -33,6 +33,10 @@ tableaux = [
     {"id": 27, "titre": "CRASH", "image": "CRASH.jpg", "description": "120 x 120."},
     {"id": 28, "titre": "BIG", "image": "1111-08.jpg", "description": "120 x 90."},
     {"id": 29, "titre": "MAC", "image": "1111-09.jpg", "description": "120 x 90."},
+    {"id": 30, "titre": "SHOW", "image": "IMG_8840 - copie.JPG", "description": ""},
+    {"id": 31, "titre": "SHOW", "image": "IMG_20140321_171400.jpg", "description": ""},
+    {"id": 32, "titre": "SHOW", "image": "IMG_8810 - copie 2.JPG", "description": ""},
+    {"id": 33, "titre": "SHOW", "image": "AMATUNE.jpg", "description": ""},
 ]
 
 masques = [
@@ -96,20 +100,16 @@ def tableaux_view():
 # Page détaillée d'un tableau
 @app.route("/tableau.html/<int:tableau_id>")
 def tableau(tableau_id):
-    # Trouver le tableau correspondant dans la liste
+
     tableau = next((tableau for tableau in tableaux if tableau["id"] == tableau_id), None)
     if tableau:
-    #     return render_template("tableau.html", tableau=tableau)
-    # else:
-    #     return "Tableau non trouvée", 404
-        # Trouver l'index du tableau actuel
         current_index = tableaux.index(tableau)
 
-        # Calculer les index des tableaux précédents et suivants
+
         prev_index = current_index - 1 if current_index > 0 else len(tableaux) - 1
         next_index = current_index + 1 if current_index < len(tableaux) - 1 else 0
 
-        # Récupérer les tableaux précédents et suivants
+
         prev_tableau = tableaux[prev_index]
         next_tableau = tableaux[next_index]
 
@@ -183,20 +183,16 @@ def masques_view():
 
 @app.route("/masque.html/<int:masque_id>")
 def masque(masque_id):
-    # Trouver le masque correspondant dans la liste
+
     masque = next((masque for masque in masques if masque["id"] == masque_id), None)
     if masque:
-    #     return render_template("masque.html", masque=masque)
-    # else:
-    #     return "masque non trouvée", 404
-        # Trouver l'index du masque actuel
         current_index = masques.index(masque)
 
-        # Calculer les index des masques précédents et suivants
+
         prev_index = current_index - 1 if current_index > 0 else len(masques) - 1
         next_index = current_index + 1 if current_index < len(masques) - 1 else 0
 
-        # Récupérer les masques précédents et suivants
+
         prev_masque = masques[prev_index]
         next_masque = masques[next_index]
 
