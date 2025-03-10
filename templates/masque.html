@@ -13,6 +13,7 @@ content %}
 
       <!-- Bouton Prev à gauche de l'image -->
       <a
+        id="btn-prev"
         href="{{ url_for('masque', masque_id=prev_masque_id) }}"
         class="btn-prev"
         >❮</a
@@ -27,6 +28,7 @@ content %}
 
       <!-- Bouton Next à droite de l'image -->
       <a
+        id="btn-next"
         href="{{ url_for('masque', masque_id=next_masque_id) }}"
         class="btn-next"
         >❯</a

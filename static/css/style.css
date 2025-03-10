@@ -223,7 +223,7 @@ ul li ul li a {
 .hero-remy {
   font-size: 5em;
   font-family: "Permanent Marker", serif;
-  animation: fadeInDown 1.5sease-out;
+  /* animation: fadeInDown 1.5sease-out; */
   color: #000;
   margin: 0;
   margin-bottom: -50px;
@@ -232,14 +232,14 @@ ul li ul li a {
 .hero-pagart {
   font-size: 6em;
   font-family: "Permanent Marker", serif;
-  animation: fadeInDown 1.5sease-out;
+  /* animation: fadeInDown 1.5sease-out; */
   color: #000;
   margin: 0;
 }
 
 .hero-subtitle {
   font-size: 2em;
-  animation: fadeInUp 1.5sease-out;
+  /* animation: fadeInUp 1.5sease-out; */
   color: #333;
   font-family: "Permanent Marker", serif;
   margin: 0;
