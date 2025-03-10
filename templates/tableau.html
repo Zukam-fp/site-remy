@@ -17,6 +17,7 @@ content %}
 
       <!-- Bouton Prev à gauche de l'image -->
       <a
+        id="btn-prev"
         href="{{ url_for('tableau', tableau_id=prev_tableau_id) }}"
         class="btn-prev"
         >❮</a
@@ -31,6 +32,7 @@ content %}
 
       <!-- Bouton Next à droite de l'image -->
       <a
+        id="btn-next"
         href="{{ url_for('tableau', tableau_id=next_tableau_id) }}"
         class="btn-next"
         >❯</a
@@ -38,4 +40,13 @@ content %}
     </div>
   </div>
 </section>
+<script>
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+      document.getElementById("btn-prev").click();
+    } else if (event.key === "ArrowRight") {
+      document.getElementById("btn-next").click();
+    }
+  });
+</script>
 {% endblock %}

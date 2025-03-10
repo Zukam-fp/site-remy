@@ -58,19 +58,19 @@
     <div class="content">
       <main>{% block content %}{% endblock %}</main>
     </div>
-
+    {% block footer %}
     <footer>
       <div class="container-footer">
         <small> &copy; 2025 Rémy pagart. Tous droits réservés. </small>
       </div>
     </footer>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% endblock %}
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
     </style>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Permanent+Marker&display=swap");
     </style>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>

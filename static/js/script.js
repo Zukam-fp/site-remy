@@ -62,12 +62,13 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex - 1].alt;
 }
 
-const carouselSlides = document.querySelector(".carousel-slides");
-
-carouselSlides.addEventListener("mouseenter", () => {
-  carouselSlides.style.animationPlayState = "paused";
-});
-
-carouselSlides.addEventListener("mouseleave", () => {
-  carouselSlides.style.animationPlayState = "running";
+// Fonction pour gérer les touches du clavier
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowLeft") {
+    // Flèche gauche : bouton Prev
+    document.getElementById("btn-prev").click();
+  } else if (event.key === "ArrowRight") {
+    // Flèche droite : bouton Next
+    document.getElementById("btn-next").click();
+  }
 });

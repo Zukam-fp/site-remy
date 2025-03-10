@@ -19,9 +19,12 @@ main {
 }
 
 .detail-info h3 {
-  font-family: "Caveat";
-  margin-top: -45px;
-  color: grey;
+  font-family: "Permanent Marker";
+  font-weight: 100;
+  font-style: normal;
+  margin-bottom: 40px;
+  margin-top: -50px;
+  color: #333;
 }
 
 section {
@@ -40,16 +43,11 @@ body {
   margin: 0;
 }
 
-.body h3 {
-  font-family: adelle, sans-serif;
-  font-style: normal;
-  font-weight: 200;
-}
-
 body h2 {
   font-family: "Permanent Marker", serif;
   margin-bottom: 35px;
-  font-size: xxx-large;
+  font-size: 69px;
+  margin-top: 0;
 }
 
 header {
@@ -217,37 +215,34 @@ ul li ul li a {
 }
 
 .remy-pagart {
-  display: flex;
-  justify-content: space-around;
-  margin-left: 456px;
+  text-align: center;
+  margin-left: 50em;
+  margin-bottom: 5em;
 }
 
 .hero-remy {
-  font-size: 4.5em;
+  font-size: 5em;
   font-family: "Permanent Marker", serif;
-  margin-bottom: 20px;
   animation: fadeInDown 1.5sease-out;
-  margin-right: 21px;
+  color: #000;
+  margin: 0;
+  margin-bottom: -50px;
 }
 
 .hero-pagart {
-  font-size: 4.5em;
+  font-size: 6em;
   font-family: "Permanent Marker", serif;
-  margin-bottom: 0px;
   animation: fadeInDown 1.5sease-out;
-  opacity: 0.7;
-  margin-right: 0px;
   color: #000;
+  margin: 0;
 }
 
 .hero-subtitle {
-  font-size: 1.5em;
-  margin-bottom: 40px;
+  font-size: 2em;
   animation: fadeInUp 1.5sease-out;
-  margin-top: -40px;
-  margin-left: 695px;
   color: #333;
-  font-family: "Caveat";
+  font-family: "Permanent Marker", serif;
+  margin: 0;
 }
 
 .hero-background {
@@ -304,6 +299,7 @@ footer small {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  margin-top: 5em;
 }
 
 @keyframes fadeIn {
@@ -329,12 +325,12 @@ footer small {
 }
 
 .galerie-tbl h3 {
-  font-family: "Caveat";
-  font-weight: 400;
+  font-family: "Permanent Marker";
+  font-weight: 100;
   font-style: normal;
   margin-bottom: 40px;
   margin-top: -50px;
-  color: grey;
+  color: #333;
 }
 
 .tableaux {
@@ -393,8 +389,8 @@ footer small {
 
 .tableau-details {
   display: flex;
-  flex-direction: column; /* Aligner les éléments verticalement */
-  align-items: center; /* Centrer horizontalement */
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
   padding: 20px;
   max-width: 1200px;
@@ -407,7 +403,7 @@ footer small {
   flex: 1;
   width: 75%;
   text-align: center;
-  position: relative; /* Ajouté pour positionner les boutons */
+  position: relative;
   animation: fadeIn 0.5s ease-out;
   animation-fill-mode: both;
 }
@@ -419,8 +415,8 @@ footer small {
 }
 
 .tableau-info {
-  width: 100%; /* Prendre toute la largeur */
-  text-align: center; /* Centrer le texte */
+  width: 100%;
+  text-align: center;
 }
 
 .tableau-info h2 {
@@ -498,10 +494,10 @@ footer small {
   transition: all 0.3s ease-out;
   color: black;
   font-size: 0.8em;
-  position: absolute; /* Position absolue pour placer le bouton */
-  top: 0; /* Aligner en haut */
-  left: 0; /* Aligner à gauche */
-  z-index: 1; /* S'assurer qu'il est au-dessus de l'image */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .btn-retour-tbl:hover {
@@ -550,7 +546,6 @@ footer small {
 }
 
 .btn-contact-info:hover {
-  /* border-bottom: 2px solid #702424; */
   background: #fff;
   color: black;
   text-shadow: 1px 1px 0 transparent;
@@ -561,15 +556,11 @@ footer small {
   margin: 0.1em 0.1em 0.45em;
   padding: 0.4em 0.6em;
   font-weight: 600;
-  /* border: 2px solid #702424;
-  -webkit-box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424;
-  box-shadow: 1px 1px 0 #702424, 2px 2px 0 #702424, 3px 3px 0 #702424; */
   display: inline-block;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  /* background: #ff0000; */
   color: #fff;
-  font-size: 0.75em;
+  font-size: larger;
 }
 
 .container-contact-info {
@@ -771,7 +762,8 @@ figcaption p {
 
 .caption-container {
   margin: 1.15em 0;
-  font-size: 0.8em;
+  font-size: 1.3em;
+  font-family: "Permanent Marker";
 }
 
 .row:after {
