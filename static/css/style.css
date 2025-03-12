@@ -79,6 +79,7 @@ header h1 {
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
   color: #000;
 }
 
@@ -101,7 +102,7 @@ header h1 {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
-  unicode-bidi: isolate;
+  /* unicode-bidi: isolate; */
   font-family: sans-serif;
 }
 
@@ -347,11 +348,14 @@ footer small {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tableau:hover {
   transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .tableau img {
