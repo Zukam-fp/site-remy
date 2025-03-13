@@ -182,6 +182,12 @@ header h1 {
     margin-top: -45px;
     z-index: 1000;
   }
+
+  .dropdown3 {
+    margin-left: 149px;
+    margin-top: -45px;
+    z-index: 1000;
+  }
 }
 
 a {
@@ -843,4 +849,266 @@ figcaption p {
 
 .button-retour {
   text-align: center;
+}
+
+/* Version mobile */
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #000;
+    z-index: 1000;
+  }
+
+  .nav-links {
+    display: none;
+    position: sticky;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-links.active {
+    display: block;
+    transform: translateY(0);
+  }
+
+  /* Empêcher le défilement de la page principale */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  .primary-navigation ul li {
+    display: block !important;
+    padding: 15px 0 !important;
+  }
+
+  .dropdown.active {
+    bottom: 0;
+  }
+
+  .dropdown,
+  .dropdown2,
+  .dropdown3 {
+    position: static !important;
+    display: none !important;
+    background: #f8f8f8 !important;
+    padding-left: 20px !important;
+    margin-top: 10px !important;
+    box-shadow: none !important;
+  }
+
+  .dropdown.mobile-visible,
+  .dropdown2.mobile-visible,
+  .dropdown3.mobile-visible {
+    display: block !important;
+    animation: fadeIn 0.3s ease-out;
+    display: block !important;
+  }
+
+  .dropdown2,
+  .dropdown3 {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .primary-navigation ul li ul li {
+    margin-bottom: 10px;
+  }
+
+  .primary-navigation ul li ul li a {
+    white-space: nowrap;
+    padding: 8px 0 !important;
+    display: block;
+  }
+
+  /* Flèche indicateur pour les parents */
+  .nav-links > li:has(ul) > a::after {
+    content: " ▼";
+    font-size: 0.6em;
+    vertical-align: middle;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fa-times {
+    transform: rotate(180deg);
+    transition: 0.3s ease;
+  }
+
+  .hero {
+    position: relative;
+    height: 571px; /* Utiliser min-height au lieu de height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px; /* Ajout de padding latéral */
+    overflow: hidden;
+  }
+
+  .hero-content {
+    z-index: 2;
+    width: 100%; /* Assurer une largeur complète */
+    margin-top: -284px;
+  }
+
+  .remy-pagart {
+    text-align: center;
+    margin-left: 0; /* Supprimer le margin gauche */
+    margin-bottom: 2em; /* Réduire l'espacement */
+    width: 100%;
+  }
+
+  .hero-remy {
+    font-size: 3em; /* Taille réduite pour mobile */
+    margin-bottom: -20px; /* Ajustement de l'espacement */
+    line-height: 1.2;
+  }
+
+  .hero-pagart {
+    font-size: 4em; /* Taille réduite pour mobile */
+    line-height: 1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5em; /* Taille réduite */
+    margin-top: 20px !important;
+    padding: 0 15px; /* Empêcher le débordement */
+  }
+
+  .hero-background {
+    width: 100% !important; /* Pleine largeur */
+    height: 40vh !important; /* Hauteur adaptative */
+    top: auto;
+    bottom: 0;
+  }
+
+  .tableaux {
+    gap: 5px;
+  }
+
+  .tableau-image {
+    width: 100%;
+  }
+
+  .tableau-image img {
+    width: 100%;
+  }
+
+  .btn-prev {
+    left: 0;
+  }
+
+  .btn-next {
+    right: 0;
+  }
+
+  .btn-prev,
+  .btn-next {
+    /* background: none;
+    border-radius: none;
+    border: none;
+    box-shadow: none;
+    height: none;
+    width: none; */
+    margin: 0;
+    line-height: 2.5em;
+    outline: 0 !important;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease-out;
+    color: #000;
+    font-size: 0.8em;
+    position: absolute;
+    top: 110%;
+    transform: translateY(-50%);
+  }
+
+  .prev {
+    height: 2em;
+    width: 2em;
+    font-size: 0.5em;
+    line-height: 2.1em;
+  }
+
+  .next {
+    height: 2em;
+    width: 2em;
+    font-size: 0.5em;
+    line-height: 2.1em;
+  }
+
+  .button-next {
+    right: -15px;
+  }
+  .button-prev {
+    left: 5px;
+  }
+
+  .btn-retour-tbl {
+    top: -109px;
+  }
+
+  body h2 {
+    font-size: 50px;
+  }
+
+  .detail-info .btn-retour-tbl {
+    top: 70px;
+    left: 25px;
+  }
+
+  .masque-image {
+    width: 100%;
+  }
+
+  .masque-image img {
+    width: 100%;
+  }
+
+  .masque-image .btn-retour-tbl {
+    top: 0;
+  }
+
+  .btn-retour-mask {
+    top: 70px;
+    left: 25px;
+  }
+}
+
+/* Masquer le hamburger sur desktop */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
 }
