@@ -891,6 +891,7 @@ figcaption p {
     width: 35px;
     height: 33px;
     box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+    max-width: -webkit-fill-available;
   }
 
   .nav-links {
