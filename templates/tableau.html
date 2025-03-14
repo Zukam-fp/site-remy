@@ -7,38 +7,36 @@ content %}
       <h2>{{ tableau.titre }}</h2>
       <p>{{ tableau.description }}</p>
     </div>
+    <!-- Bouton Retour en haut à gauche -->
+    <a href="/tableaux" class="btn-retour-tbl">
+      <i class="fa-solid fa-rotate-left"></i>
+    </a>
 
     <!-- Conteneur de l'image et des boutons -->
     <div class="tableau-image">
-      <!-- Bouton Retour en haut à gauche -->
-      <a href="/tableaux" class="btn-retour-tbl">
-        <i class="fa-solid fa-rotate-left"></i>
-      </a>
-
-      <!-- Bouton Prev à gauche de l'image -->
-      <a
-        id="btn-prev"
-        href="{{ url_for('tableau', tableau_id=prev_tableau_id) }}"
-        class="btn-prev"
-        >❮</a
-      >
-
       <!-- Image du tableau -->
       <img
         src="{{ url_for('static', filename='images/photos_TABLOS_site/' + tableau.image) }}"
         alt="{{ tableau.titre }}"
         class="tbl-img fade-in-element"
       />
-
-      <!-- Bouton Next à droite de l'image -->
-      <a
-        id="btn-next"
-        href="{{ url_for('tableau', tableau_id=next_tableau_id) }}"
-        class="btn-next"
-        >❯</a
-      >
+      <div class="gallery-btn">
+        <a
+          id="btn-prev"
+          href="{{ url_for('tableau', tableau_id=prev_tableau_id) }}"
+          class="btn-prev"
+          >❮</a
+        >
+        <a
+          id="btn-next"
+          href="{{ url_for('tableau', tableau_id=next_tableau_id) }}"
+          class="btn-next"
+          >❯</a
+        >
+      </div>
     </div>
   </div>
+  <!-- Bouton Navigation -->
 </section>
 <script>
   document.addEventListener("keydown", function (event) {

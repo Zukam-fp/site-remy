@@ -853,8 +853,27 @@ figcaption p {
 
 /* Version mobile */
 @media (max-width: 768px) {
+  .mySlides {
+    display: block;
+    width: 100% !important;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-con {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .logo {
     display: none;
+    /* position: absolute;
+    width: 75%;
+    top: 20px; */
+  }
+  figcaption {
+    top: 45%;
   }
 
   .hamburger {
@@ -867,6 +886,11 @@ figcaption p {
     font-size: 1.5em;
     color: #000;
     z-index: 1000;
+    background: #fff;
+    border-radius: 2px;
+    width: 35px;
+    height: 33px;
+    box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
   }
 
   .nav-links {
@@ -983,8 +1007,8 @@ figcaption p {
 
   .remy-pagart {
     text-align: center;
-    margin-left: 0; /* Supprimer le margin gauche */
-    margin-bottom: 2em; /* Réduire l'espacement */
+    margin-left: 0;
+    margin-bottom: 10em;
     width: 100%;
   }
 
@@ -1000,14 +1024,14 @@ figcaption p {
   }
 
   .hero-subtitle {
-    font-size: 1.5em; /* Taille réduite */
-    margin-top: 20px !important;
-    padding: 0 15px; /* Empêcher le débordement */
+    font-size: 1.5em;
+    margin-top: -14px !important;
+    padding: 0 15px;
   }
 
   .hero-background {
     width: 100% !important; /* Pleine largeur */
-    height: 40vh !important; /* Hauteur adaptative */
+    height: 465px !important; /* Hauteur adaptative */
     top: auto;
     bottom: 0;
   }
@@ -1017,29 +1041,36 @@ figcaption p {
   }
 
   .tableau-image {
-    width: 100%;
+    width: 85%;
+    touch-action: pan-y;
+    position: relative;
+    overflow: hidden;
   }
 
   .tableau-image img {
     width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
   }
 
   .btn-prev {
-    left: 0;
+    left: -20px;
+    padding: 20px;
   }
 
   .btn-next {
-    right: 0;
+    right: -20px;
+    padding: 20px;
   }
 
   .btn-prev,
   .btn-next {
-    /* background: none;
+    background: none;
     border-radius: none;
     border: none;
     box-shadow: none;
     height: none;
-    width: none; */
+    width: none;
     margin: 0;
     line-height: 2.5em;
     outline: 0 !important;
@@ -1050,59 +1081,84 @@ figcaption p {
     color: #000;
     font-size: 0.8em;
     position: absolute;
-    top: 110%;
+    top: 60%;
     transform: translateY(-50%);
+    padding: 25px;
   }
 
-  .prev {
-    height: 2em;
-    width: 2em;
-    font-size: 0.5em;
-    line-height: 2.1em;
-  }
-
-  .next {
-    height: 2em;
-    width: 2em;
-    font-size: 0.5em;
-    line-height: 2.1em;
+  .button-prev {
+    left: 0;
+    top: 25px;
   }
 
   .button-next {
-    right: -15px;
+    right: 0;
+    top: 25px;
   }
-  .button-prev {
-    left: 5px;
+
+  .prev {
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .next {
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
 
   .btn-retour-tbl {
-    top: -109px;
+    top: 30px;
+    left: 30px;
+    background: none;
+    border-radius: none;
+    border: none;
+    box-shadow: none;
   }
 
   body h2 {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   .detail-info .btn-retour-tbl {
-    top: 70px;
-    left: 25px;
+    top: 15px;
+    left: 12px;
+  }
+
+  .btn-retour-mask {
+    top: 40px;
+    left: 10px;
+    background: none;
+    border-radius: none;
+    border: none;
+    box-shadow: none;
   }
 
   .masque-image {
-    width: 100%;
+    width: 85%;
+    position: relative;
+    overflow: hidden;
+    touch-action: pan-y;
   }
 
   .masque-image img {
     width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
   }
 
   .masque-image .btn-retour-tbl {
-    top: 0;
+    top: 10px;
+    left: -15px;
   }
 
-  .btn-retour-mask {
-    top: 70px;
-    left: 25px;
+  .news-con h1 {
+    font-size: x-large;
   }
 }
 

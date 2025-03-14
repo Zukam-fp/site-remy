@@ -2,22 +2,15 @@
 content %}
 <section class="detail-con main">
   <div class="tableau-details">
+    <!-- Bouton Retour en haut à gauche -->
+    <a href="/masques.html" class="btn-retour-tbl">
+      <i class="fa-solid fa-rotate-left"></i>
+    </a>
+
     <div class="masque-image">
       <div class="tableau-info">
         <h2>{{ masque.titre }}</h2>
       </div>
-      <!-- Bouton Retour en haut à gauche -->
-      <a href="/masques.html" class="btn-retour-tbl">
-        <i class="fa-solid fa-rotate-left"></i>
-      </a>
-
-      <!-- Bouton Prev à gauche de l'image -->
-      <a
-        id="btn-prev"
-        href="{{ url_for('masque', masque_id=prev_masque_id) }}"
-        class="btn-prev"
-        >❮</a
-      >
 
       <!-- Image du masque -->
       <img
@@ -25,14 +18,21 @@ content %}
         alt="{{ masque.titre }}"
         class="tbl-img fade-in-element"
       />
-
-      <!-- Bouton Next à droite de l'image -->
-      <a
-        id="btn-next"
-        href="{{ url_for('masque', masque_id=next_masque_id) }}"
-        class="btn-next"
-        >❯</a
-      >
+      <!-- Bouton Navigation -->
+      <div class="gallery-btn">
+        <a
+          id="btn-prev"
+          href="{{ url_for('masque', masque_id=prev_masque_id) }}"
+          class="btn-prev"
+          >❮</a
+        >
+        <a
+          id="btn-next"
+          href="{{ url_for('masque', masque_id=next_masque_id) }}"
+          class="btn-next"
+          >❯</a
+        >
+      </div>
     </div>
   </div>
 </section>

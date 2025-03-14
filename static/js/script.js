@@ -193,3 +193,309 @@ document.addEventListener("DOMContentLoaded", function () {
     { passive: false }
   );
 });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Vérifier si c'est un mobile
+//   const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+//   if (isMobile) {
+//     const galleryCon = document.querySelector(".gallery-con");
+//     let touchStartX = 0;
+//     let currentSlideIndex = 0;
+//     const slideCount = document.querySelectorAll(".mySlides").length;
+
+//     galleryCon.addEventListener(
+//       "touchstart",
+//       function (e) {
+//         touchStartX = e.touches[0].clientX;
+//       },
+//       { passive: true }
+//     );
+
+//     galleryCon.addEventListener("touchend", function (e) {
+//       const touchEndX = e.changedTouches[0].clientX;
+//       const deltaX = touchEndX - touchStartX;
+//       const swipeThreshold = 50;
+
+//       if (Math.abs(deltaX) > swipeThreshold) {
+//         if (deltaX > 0 && currentSlideIndex > 0) {
+//           // Swipe droite
+//           currentSlideIndex--;
+//         } else if (deltaX < 0 && currentSlideIndex < slideCount - 1) {
+//           // Swipe gauche
+//           currentSlideIndex++;
+//         }
+
+//         galleryCon.scrollTo({
+//           left: window.innerWidth * currentSlideIndex,
+//           behavior: "smooth",
+//         });
+//       }
+//     });
+
+//     // Adaptation automatique au redimensionnement
+//     window.addEventListener("resize", () => {
+//       galleryCon.scrollTo({
+//         left: window.innerWidth * currentSlideIndex,
+//         behavior: "auto",
+//       });
+//     });
+//   }
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Vérifier si c'est un mobile ET si la galerie existe
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const galleryCon = document.querySelector(".gallery-con");
+
+  if (isMobile && galleryCon) {
+    // Vérification supplémentaire
+    let touchStartX = 0;
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll(".mySlides");
+    const slideCount = slides.length;
+
+    // Ajout d'un check supplémentaire sur les slides
+    if (slideCount === 0) return;
+
+    galleryCon.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    galleryCon.addEventListener("touchend", function (e) {
+      const touchEndX = e.changedTouches[0].clientX;
+      const deltaX = touchEndX - touchStartX;
+      const swipeThreshold = 50;
+
+      if (Math.abs(deltaX) > swipeThreshold) {
+        if (deltaX > 0 && currentSlideIndex > 0) {
+          currentSlideIndex--;
+        } else if (deltaX < 0 && currentSlideIndex < slideCount - 1) {
+          currentSlideIndex++;
+        }
+
+        // Utilisation de scrollTo avec vérification
+        if (galleryCon.scrollTo) {
+          galleryCon.scrollTo({
+            left: window.innerWidth * currentSlideIndex,
+            behavior: "smooth",
+          });
+        }
+      }
+    });
+
+    // Vérification de l'existence de galleryCon pour le resize
+    window.addEventListener("resize", () => {
+      if (galleryCon) {
+        galleryCon.scrollTo({
+          left: window.innerWidth * currentSlideIndex,
+          behavior: "auto",
+        });
+      }
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Vérifie si mobile et si les éléments existent
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const tableauImage = document.querySelector(".tableau-image");
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+
+  if (isMobile && tableauImage && btnPrev && btnNext) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50; // Sensibilité du swipe
+
+    // Gestion du touchstart
+    tableauImage.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    // Gestion du touchend
+    tableauImage.addEventListener(
+      "touchend",
+      function (e) {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipeGesture();
+      },
+      { passive: true }
+    );
+
+    function handleSwipeGesture() {
+      const deltaX = touchEndX - touchStartX;
+
+      if (Math.abs(deltaX) > swipeThreshold) {
+        if (deltaX > 0) {
+          // Swipe vers la droite
+          btnPrev.click();
+        } else {
+          // Swipe vers la gauche
+          btnNext.click();
+        }
+      }
+    }
+
+    // Désactive le défilement horizontal naturel
+    tableauImage.addEventListener(
+      "touchmove",
+      function (e) {
+        if (Math.abs(e.touches[0].clientX - touchStartX) > 10) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
+  }
+
+  // Conserve le code existant pour les flèches clavier
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+      btnPrev?.click();
+    } else if (event.key === "ArrowRight") {
+      btnNext?.click();
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Vérifie si mobile et si les éléments existent
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const tableauImage = document.querySelector(".tableau-image");
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+
+  if (isMobile && tableauImage && btnPrev && btnNext) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50; // Sensibilité du swipe
+
+    // Gestion du touchstart
+    tableauImage.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    // Gestion du touchend
+    tableauImage.addEventListener(
+      "touchend",
+      function (e) {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipeGesture();
+      },
+      { passive: true }
+    );
+
+    function handleSwipeGesture() {
+      const deltaX = touchEndX - touchStartX;
+
+      if (Math.abs(deltaX) > swipeThreshold) {
+        if (deltaX > 0) {
+          // Swipe vers la droite
+          btnPrev.click();
+        } else {
+          // Swipe vers la gauche
+          btnNext.click();
+        }
+      }
+    }
+
+    // Désactive le défilement horizontal naturel
+    tableauImage.addEventListener(
+      "touchmove",
+      function (e) {
+        if (Math.abs(e.touches[0].clientX - touchStartX) > 10) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
+  }
+
+  // Conserve le code existant pour les flèches clavier
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+      btnPrev?.click();
+    } else if (event.key === "ArrowRight") {
+      btnNext?.click();
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Vérification mobile + existence des éléments
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const masqueImage = document.querySelector(".masque-image");
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+
+  if (isMobile && masqueImage && btnPrev && btnNext) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 40; // Sensibilité réglable
+
+    // Gestion des événements tactiles
+    masqueImage.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    masqueImage.addEventListener(
+      "touchend",
+      function (e) {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+      },
+      { passive: true }
+    );
+
+    function handleSwipe() {
+      const deltaX = touchEndX - touchStartX;
+
+      if (Math.abs(deltaX) > swipeThreshold) {
+        // Feedback visuel
+        masqueImage.style.transform = `translateX(${deltaX > 0 ? 15 : -15}px)`;
+
+        setTimeout(() => {
+          masqueImage.style.transform = "translateX(0)";
+          deltaX > 0 ? btnPrev.click() : btnNext.click();
+        }, 200);
+      }
+    }
+
+    // Blocage du défilement horizontal
+    masqueImage.addEventListener(
+      "touchmove",
+      function (e) {
+        if (Math.abs(e.touches[0].clientX - touchStartX) > 10) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
+  }
+
+  // Navigation par clavier (conservée pour desktop)
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+      btnPrev?.click();
+    } else if (event.key === "ArrowRight") {
+      btnNext?.click();
+    }
+  });
+});
