@@ -5,20 +5,19 @@ content %}
     <div class="tableau-info">
       <h2>{{ masque.titre }}</h2>
     </div>
-    <!-- Bouton Retour en haut à gauche -->
+
     <a href="/masques.html" class="btn-retour-tbl">
       <i class="fa-solid fa-rotate-left"></i>
     </a>
     <div class="tbl-btn-con">
       <div class="masque-image">
-        <!-- Image du masque -->
         <img
           src="{{ url_for('static', filename='images/MASKINOX/' + masque.image) }}"
           alt="{{ masque.titre }}"
           class="tbl-img fade-in-element"
         />
       </div>
-      <!-- Bouton Navigation -->
+
       <div class="gallery-btn">
         <a
           id="btn-prev"

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, send_from_directory
 
 app = Flask(__name__)
-app.secret_key = "une_clé_secrète_très_sécurisée"   # Nécessaire pour Flask-WTF
+app.secret_key = "une_clé_secrète_très_sécurisée"
 
 tableaux = [
     {"id": 1, "titre": "MOON PA", "image": "1111-01 - copie 2.jpg", "description": "120 x 150."},

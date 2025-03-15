@@ -229,8 +229,6 @@ ul li ul li a {
 
 .hero-remy {
   font-size: 5em;
-  font-family: "Permanent Marker";
-  /* animation: fadeInDown 1.5sease-out; */
   color: #000;
   margin: 0;
   margin-bottom: -50px;
@@ -239,14 +237,12 @@ ul li ul li a {
 .hero-pagart {
   font-size: 6em;
   font-family: "Permanent Marker";
-  /* animation: fadeInDown 1.5sease-out; */
   color: #000;
   margin: 0;
 }
 
 .hero-subtitle {
   font-size: 2em;
-  /* animation: fadeInUp 1.5sease-out; */
   color: #333;
   font-family: "Permanent Marker";
   margin: 0;
@@ -857,35 +853,8 @@ figcaption p {
 
 /* Version mobile */
 @media (max-width: 768px) {
-  .mySlides {
-    display: block;
-    width: 100% !important;
-    transition: transform 0.3s ease;
-    scroll-snap-align: start;
-  }
-
-  .gallery-con {
-    width: 100%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Animation de transition */
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-
   .logo {
     display: none;
-    /* position: absolute;
-    width: 75%;
-    top: 20px; */
   }
   figcaption {
     top: 45%;
@@ -908,12 +877,12 @@ figcaption p {
     box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
     border: 2px solid #000;
     cursor: pointer;
-    -webkit-appearance: none; /* Correction spécifique pour Safari */
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    line-height: 0; /* Correction espacement icône */
-    padding: 0; /* Ajout important */
-    margin: 0; /* Ajout important */
+    line-height: 0;
+    padding: 0;
+    margin: 0;
   }
 
   .hamburger i {
@@ -940,7 +909,6 @@ figcaption p {
     transform: translateY(0);
   }
 
-  /* Empêcher le défilement de la page principale */
   body.menu-open {
     overflow: hidden;
     position: fixed;
@@ -992,7 +960,6 @@ figcaption p {
     display: block;
   }
 
-  /* Flèche indicateur pour les parents */
   .nav-links > li:has(ul) > a::after {
     content: " ▼";
     font-size: 0.6em;
@@ -1017,18 +984,18 @@ figcaption p {
 
   .hero {
     position: relative;
-    height: 571px; /* Utiliser min-height au lieu de height */
+    height: 571px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px; /* Ajout de padding latéral */
+    padding: 20px;
     overflow: hidden;
   }
 
   .hero-content {
     z-index: 2;
-    width: 100%; /* Assurer une largeur complète */
+    width: 100%;
     margin-top: -284px;
   }
 
@@ -1040,13 +1007,13 @@ figcaption p {
   }
 
   .hero-remy {
-    font-size: 3em; /* Taille réduite pour mobile */
-    margin-bottom: -20px; /* Ajustement de l'espacement */
+    font-size: 3em;
+    margin-bottom: -20px;
     line-height: 1.2;
   }
 
   .hero-pagart {
-    font-size: 4em; /* Taille réduite pour mobile */
+    font-size: 4em;
     line-height: 1;
   }
 
@@ -1057,8 +1024,8 @@ figcaption p {
   }
 
   .hero-background {
-    width: 100% !important; /* Pleine largeur */
-    height: 465px !important; /* Hauteur adaptative */
+    width: 100% !important;
+    height: 465px !important;
     top: auto;
     bottom: 0;
   }
@@ -1218,7 +1185,6 @@ figcaption p {
   }
 }
 
-/* Masquer le hamburger sur desktop */
 @media (min-width: 769px) {
   .hamburger {
     display: none !important;
@@ -1228,8 +1194,8 @@ figcaption p {
 @supports (-webkit-touch-callout: none) {
   .hamburger {
     box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
-    transform: translateZ(0); /* Force l'accélération matérielle */
-    overflow: hidden; /* Contient les éléments internes */
+    transform: translateZ(0);
+    overflow: hidden;
   }
 
   .primary-navigation {
