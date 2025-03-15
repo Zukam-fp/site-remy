@@ -347,6 +347,10 @@ footer small {
   gap: 20px;
 }
 
+.tbl-btn-con {
+  width: 85%;
+}
+
 .tableau {
   position: relative;
   width: 165px;
@@ -411,7 +415,7 @@ footer small {
 
 .tableau-image {
   flex: 1;
-  width: 75%;
+  width: 100%;
   text-align: center;
   position: relative;
   animation: fadeIn 0.5s ease-out;
@@ -419,7 +423,7 @@ footer small {
 }
 
 .tableau-image img {
-  width: 50%;
+  width: 45%;
   max-width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -857,6 +861,7 @@ figcaption p {
     display: block;
     width: 100% !important;
     transition: transform 0.3s ease;
+    scroll-snap-align: start;
   }
 
   .gallery-con {
@@ -864,6 +869,16 @@ figcaption p {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+  }
+
+  /* Animation de transition */
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 
   .logo {
@@ -891,7 +906,18 @@ figcaption p {
     width: 35px;
     height: 33px;
     box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
-    max-width: -webkit-fill-available;
+    border: 2px solid #000;
+    cursor: pointer;
+    -webkit-appearance: none; /* Correction spécifique pour Safari */
+    -moz-appearance: none;
+    appearance: none;
+    line-height: 0; /* Correction espacement icône */
+    padding: 0; /* Ajout important */
+    margin: 0; /* Ajout important */
+  }
+
+  .hamburger i {
+    display: inline-block;
   }
 
   .nav-links {
@@ -1042,7 +1068,7 @@ figcaption p {
   }
 
   .tableau-image {
-    width: 85%;
+    width: 100%;
     touch-action: pan-y;
     position: relative;
     overflow: hidden;
@@ -1054,14 +1080,20 @@ figcaption p {
     transition: transform 0.3s ease;
   }
 
+  /* Reset spécifique pour les boutons sur Safari */
+  button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   .btn-prev {
-    left: -20px;
-    padding: 20px;
+    left: 0px;
   }
 
   .btn-next {
-    right: -20px;
-    padding: 20px;
+    right: 0px;
   }
 
   .btn-prev,
@@ -1084,7 +1116,6 @@ figcaption p {
     position: absolute;
     top: 60%;
     transform: translateY(-50%);
-    padding: 25px;
   }
 
   .button-prev {
@@ -1113,6 +1144,16 @@ figcaption p {
     box-shadow: none;
   }
 
+  .prev:hover {
+    background: none;
+    color: #000;
+  }
+
+  .next:hover {
+    background: none;
+    color: #000;
+  }
+
   .btn-retour-tbl {
     top: 30px;
     left: 30px;
@@ -1120,6 +1161,12 @@ figcaption p {
     border-radius: none;
     border: none;
     box-shadow: none;
+  }
+
+  .btn-retour-tbl:hover {
+    color: #000;
+    text-shadow: 1px 1px 0 transparent;
+    background: none;
   }
 
   body h2 {
@@ -1132,7 +1179,7 @@ figcaption p {
   }
 
   .btn-retour-mask {
-    top: 40px;
+    top: 35px;
     left: 10px;
     background: none;
     border-radius: none;
@@ -1140,8 +1187,16 @@ figcaption p {
     box-shadow: none;
   }
 
+  .btn-retour-mask:hover {
+    background: none;
+    color: #000;
+    border-radius: none;
+    border: none;
+    box-shadow: none;
+  }
+
   .masque-image {
-    width: 85%;
+    width: 100%;
     position: relative;
     overflow: hidden;
     touch-action: pan-y;
@@ -1167,5 +1222,18 @@ figcaption p {
 @media (min-width: 769px) {
   .hamburger {
     display: none !important;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .hamburger {
+    box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+    transform: translateZ(0); /* Force l'accélération matérielle */
+    overflow: hidden; /* Contient les éléments internes */
+  }
+
+  .primary-navigation {
+    position: relative;
+    z-index: 1;
   }
 }

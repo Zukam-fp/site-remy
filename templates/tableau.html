@@ -13,13 +13,15 @@ content %}
     </a>
 
     <!-- Conteneur de l'image et des boutons -->
-    <div class="tableau-image">
-      <!-- Image du tableau -->
-      <img
-        src="{{ url_for('static', filename='images/photos_TABLOS_site/' + tableau.image) }}"
-        alt="{{ tableau.titre }}"
-        class="tbl-img fade-in-element"
-      />
+    <div class="tbl-btn-con">
+      <div class="tableau-image">
+        <!-- Image du tableau -->
+        <img
+          src="{{ url_for('static', filename='images/photos_TABLOS_site/' + tableau.image) }}"
+          alt="{{ tableau.titre }}"
+          class="tbl-img fade-in-element"
+        />
+      </div>
       <div class="gallery-btn">
         <a
           id="btn-prev"

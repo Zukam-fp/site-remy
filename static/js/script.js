@@ -444,7 +444,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isMobile && masqueImage && btnPrev && btnNext) {
     let touchStartX = 0;
     let touchEndX = 0;
-    const swipeThreshold = 40; // Sensibilité réglable
+    const swipeThreshold = 50; // Sensibilité réglable
 
     // Gestion des événements tactiles
     masqueImage.addEventListener(
@@ -501,68 +501,91 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Vérifie si mobile et si les éléments existent
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
-  const mySlides = document.querySelector(".mySlides");
+  // Sélection du conteneur principal
+  const galleryCon = document.querySelector(".gallery-con");
   const btnPrev = document.getElementById("btn-prev");
   const btnNext = document.getElementById("btn-next");
+  const slides = document.querySelectorAll(".mySlides");
+  let currentSlide = 0;
+  let startX = 0;
+  let isScrolling;
 
-  if (isMobile && mySlides && btnPrev && btnNext) {
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const swipeThreshold = 50; // Sensibilité du swipe
+  // Activation seulement sur mobile
+  if (window.matchMedia("(max-width: 767px)").matches && galleryCon) {
+    // Configuration du CSS dynamique
+    galleryCon.style.overflowX = "auto";
+    galleryCon.style.scrollSnapType = "x mandatory";
+    galleryCon.style.scrollBehavior = "smooth";
 
-    // Gestion du touchstart
-    mySlides.addEventListener(
+    // Configuration des slides
+    slides.forEach((slide) => {
+      slide.style.flexShrink = "0";
+      slide.style.width = "100%";
+      slide.style.scrollSnapAlign = "start";
+    });
+
+    // Gestion des événements tactiles
+    galleryCon.addEventListener(
       "touchstart",
-      function (e) {
-        touchStartX = e.touches[0].clientX;
+      (e) => {
+        startX = e.touches[0].pageX;
       },
       { passive: true }
     );
 
-    // Gestion du touchend
-    mySlides.addEventListener(
-      "touchend",
-      function (e) {
-        touchEndX = e.changedTouches[0].clientX;
-        handleSwipeGesture();
-      },
-      { passive: true }
-    );
-
-    function handleSwipeGesture() {
-      const deltaX = touchEndX - touchStartX;
-
-      if (Math.abs(deltaX) > swipeThreshold) {
-        if (deltaX > 0) {
-          // Swipe vers la droite
-          btnPrev.click();
-        } else {
-          // Swipe vers la gauche
-          btnNext.click();
-        }
-      }
-    }
-
-    // Désactive le défilement horizontal naturel
-    mySlides.addEventListener(
+    galleryCon.addEventListener(
       "touchmove",
-      function (e) {
-        if (Math.abs(e.touches[0].clientX - touchStartX) > 10) {
-          e.preventDefault();
-        }
+      (e) => {
+        e.preventDefault();
+        const x = e.touches[0].pageX;
+        const walk = (x - startX) * 2;
+        galleryCon.scrollLeft -= walk;
       },
       { passive: false }
     );
+
+    galleryCon.addEventListener("touchend", () => {
+      // Détection de la position finale
+      const newSlide = Math.round(galleryCon.scrollLeft / window.innerWidth);
+      if (newSlide !== currentSlide) {
+        currentSlide = newSlide;
+        plusSlides(newSlide - currentSlide);
+      }
+    });
+
+    // Synchronisation avec les boutons existants
+    btnPrev?.addEventListener("click", () => plusSlides(-1));
+    btnNext?.addEventListener("click", () => plusSlides(1));
+
+    // Mise à jour initiale
+    updateSlider();
   }
 
-  // Conserve le code existant pour les flèches clavier
+  function plusSlides(n) {
+    currentSlide = (currentSlide + n + slides.length) % slides.length;
+    galleryCon.scrollTo({
+      left: currentSlide * window.innerWidth,
+      behavior: "smooth",
+    });
+    updateSlider();
+  }
+
+  function updateSlider() {
+    // Mise à jour des états actifs
+    slides.forEach((slide, index) => {
+      slide.classList.toggle("active", index === currentSlide);
+    });
+
+    // Mise à jour des miniatures
+    const thumbnails = document.querySelectorAll(".demo");
+    thumbnails.forEach((thumb, index) => {
+      thumb.classList.toggle("active", index === currentSlide);
+    });
+  }
+
+  // Navigation clavier
   document.addEventListener("keydown", function (event) {
-    if (event.key === "ArrowLeft") {
-      btnPrev?.click();
-    } else if (event.key === "ArrowRight") {
-      btnNext?.click();
-    }
+    if (event.key === "ArrowLeft") plusSlides(-1);
+    if (event.key === "ArrowRight") plusSlides(1);
   });
 });
