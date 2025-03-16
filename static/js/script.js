@@ -327,3 +327,60 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Vérifie si mobile et si les éléments existent
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const galleryCon = document.querySelector(".gallery-con");
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+
+  if (isMobile && galleryCon && btnPrev && btnNext) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50; // Sensibilité du swipe
+
+    // Gestion des événements tactiles
+    galleryCon.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    galleryCon.addEventListener(
+      "touchend",
+      function (e) {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipeGesture();
+      },
+      { passive: true }
+    );
+
+    function handleSwipeGesture() {
+      const deltaX = touchEndX - touchStartX;
+
+      if (Math.abs(deltaX) > swipeThreshold) {
+        deltaX > 0 ? btnPrev.click() : btnNext.click();
+      }
+    }
+
+    // Bloque le défilement horizontal pendant le swipe
+    galleryCon.addEventListener(
+      "touchmove",
+      function (e) {
+        if (Math.abs(e.touches[0].clientX - touchStartX) > 10) {
+          e.preventDefault();
+        }
+      },
+      { passive: false }
+    );
+  }
+
+  // Gestion des flèches clavier
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") btnPrev?.click();
+    if (e.key === "ArrowRight") btnNext?.click();
+  });
+});
