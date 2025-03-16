@@ -1,7 +1,80 @@
-from flask import Flask, render_template, request, send_from_directory
+import secrets
+from flask import Flask, render_template, request, abort, send_from_directory
+import os
+from dotenv import load_dotenv
+load_dotenv()
+import logging
+from logging.handlers import RotatingFileHandler
+from flask_talisman import Talisman
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
-app.secret_key = "une_clé_secrète_très_sécurisée"
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', os.urandom(24))
+app.config.update(
+    SECRET_KEY=os.environ.get('FLASK_SECRET_KEY'),
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    PERMANENT_SESSION_LIFETIME=3600,
+    DEBUG=os.environ.get('FLASK_DEBUG', 'False') == 'False'
+)
+
+# Configuration CSP
+csp = {
+    'default-src': "'self'",
+    'img-src': "'self' data:",
+    'style-src': [
+        "'self'",
+        "'unsafe-inline'",
+        "https://fonts.googleapis.com",
+        "https://cdnjs.cloudflare.com"  # Ajout du domaine CDNJS
+    ],
+    'font-src': [
+        "'self'",
+        "https://fonts.gstatic.com",
+        "https://cdnjs.cloudflare.com"  # Ajout pour les polices
+    ],
+    'script-src': [
+        "'self'",
+        "'unsafe-inline'",
+        "https://kit.fontawesome.com"
+    ]
+}
+
+# Initialisation des extensions de sécurité
+talisman = Talisman(
+    app,
+    content_security_policy=csp,
+    force_https=True,
+    strict_transport_security=True
+)
+csrf = CSRFProtect(app)
+limiter = Limiter(
+    app=app,
+    key_func=get_remote_address,
+    default_limits=["200 per day", "50 per hour"]
+)
+
+# Configuration du logging
+if not app.debug:
+    if not os.path.exists('logs'):
+        os.mkdir('logs')
+
+    file_handler = RotatingFileHandler(
+        'logs/error.log',
+        maxBytes=1024 * 1024,
+        backupCount=10
+    )
+    file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
+    ))
+    app.logger.addHandler(file_handler)
+    app.logger.setLevel(logging.INFO)
+    app.logger.info('Démarrage de l\'application')
+
+
 
 tableaux = [
     {"id": 1, "titre": "MOON PA", "image": "1111-01 - copie 2.jpg", "description": "120 x 150."},
@@ -83,9 +156,19 @@ masques = [
 ]
 
 
+# Gestion sécurisée des fichiers statiques
+@app.route('/static/<path:filename>')
+@limiter.exempt
+def custom_static(filename):
+    if '..' in filename or filename.startswith('/'):
+        app.logger.warning(f'Tentative d\'accès non autorisé à {filename}')
+        abort(404)
+    return send_from_directory(app.static_folder, filename)
+
 
 # Page d'accueil
 @app.route("/")
+@limiter.limit("100/hour")
 def accueil():
     return render_template("index.html")
 
@@ -99,8 +182,8 @@ def tableaux_view():
 
 # Page détaillée d'un tableau
 @app.route("/tableau.html/<int:tableau_id>")
+@limiter.limit("50/hour")
 def tableau(tableau_id):
-
     tableau = next((tableau for tableau in tableaux if tableau["id"] == tableau_id), None)
     if tableau:
         current_index = tableaux.index(tableau)
@@ -124,6 +207,7 @@ def tableau(tableau_id):
 
 
 @app.route("/sculptures.html")
+@limiter.limit("50/hour")
 def sculptures():
     sculptures = [
     {"id": 1, "titre": "Fusos", "image": "colonne-01.jpg", "description": "Fusos"},
@@ -136,6 +220,7 @@ def sculptures():
 
 
 @app.route('/fusos.html')
+@limiter.limit("50/hour")
 def fusos():
     fusos = [
         {"id": 1, "titre": "Fuso", "image": "colonne-01.jpg", "description": "Fuso."},
@@ -154,6 +239,7 @@ def fusos():
 
 
 @app.route('/monsters.html')
+@limiter.limit("50/hour")
 def monsters():
     monsters = [
         {"id": 1, "titre": "Mr Bobo", "image": "911B-10.jpg", "description": "Mr Bobo."},
@@ -177,11 +263,13 @@ def monsters():
 
 
 @app.route('/masques.html')
+@limiter.limit("50/hour")
 def masques_view():
     return render_template('masques.html', masques=masques)
 
 
 @app.route("/masque.html/<int:masque_id>")
+@limiter.limit("50/hour")
 def masque(masque_id):
 
     masque = next((masque for masque in masques if masque["id"] == masque_id), None)
@@ -207,6 +295,7 @@ def masque(masque_id):
 
 
 @app.route('/creations.html')
+@limiter.limit("50/hour")
 def creations():
     creations = [
         {"id": 1, "titre": "Metal 1", "image": "12.jpg", "description": "Metal 1."},
@@ -233,6 +322,7 @@ def creations():
 
 
 @app.route('/bikes.html')
+@limiter.limit("50/hour")
 def bikes():
     bikes = [
         {"id": 1, "titre": "Motograff 1", "image": "IMG_5053.JPG", "description": "Motograff 1."},
@@ -249,6 +339,7 @@ def bikes():
 
 
 @app.route('/furnitures.html')
+@limiter.limit("50/hour")
 def furnitures():
     furnitures = [
         {"id": 1, "titre": "Furniture ", "image": "Armoire métal.jpeg", "description": "Furniture."},
@@ -272,6 +363,7 @@ def furnitures():
 
 
 @app.route('/motos.html')
+@limiter.limit("50/hour")
 def motos():
     motos = [
         {"id": 1, "titre": "Tracto", "image": "30mars0004.jpg", "description": "Tracto."},
@@ -290,6 +382,7 @@ def motos():
 
 
 @app.route('/boutiques.html')
+@limiter.limit("50/hour")
 def boutiques():
     boutiques = [
         {"id": 1, "titre": "ILLUSTRATION", "image": "Bar L'Illustration Lille.jpeg", "description": "ILLUSTRATION."},
@@ -307,6 +400,7 @@ def boutiques():
 
 
 @app.route('/shops.html')
+@limiter.limit("50/hour")
 def shops():
     shops = [
         {"id": 1, "titre": "ILLUSTRATION", "image": "Bar L'Illustration Lille 1.jpeg", "description": "ILLUSTRATION."},
@@ -317,6 +411,7 @@ def shops():
     return render_template('shops.html', shops=shops)
 
 @app.route('/shops2.html')
+@limiter.limit("50/hour")
 def shops2():
     shops2 = [
         {"id": 1, "titre": "IRO", "image": "Boutique IRO Lille +.jpeg", "description": "IRO."},
@@ -326,7 +421,9 @@ def shops2():
     return render_template('shops2.html', shops2=shops2)
 
 @app.route('/shops3.html')
+@limiter.limit("50/hour")
 def shops3():
+
     shops3 = [
         {"id": 1, "titre": "Shop 1", "image": "Boutique-OSIRIS-Douai-1.jpeg", "description": "Shop 1."},
         {"id": 2, "titre": "Shop 2", "image": "Boutique OSIRIS Douai 2.jpeg", "description": "Shop 2."},
@@ -338,6 +435,7 @@ def shops3():
 
 
 @app.route('/shops4.html')
+@limiter.limit("50/hour")
 def shops4():
     shops4 = [
         {"id": 1, "titre": "Shop 1", "image": "Boutique ZABOU Lille 1.jpeg", "description": "Shop 1."},
@@ -350,6 +448,7 @@ def shops4():
 
 
 @app.route('/shops5.html')
+@limiter.limit("50/hour")
 def shops5():
     shops5 = [
         {"id": 1, "titre": "Shop 1", "image": "VIRUS boutique ARRAS 1.jpeg", "description": "Shop 1."},
@@ -364,6 +463,7 @@ def shops5():
 
 
 @app.route('/houses.html')
+@limiter.limit("50/hour")
 def houses():
     houses = [
         {"id": 1, "titre": "house 1", "image": "IMG_6532.jpg", "description": "house 1."},
@@ -383,11 +483,13 @@ def houses():
 
 # Page news
 @app.route("/news")
+@limiter.limit("50/hour")
 def news():
     return render_template("news.html")
 
 # Page Contact
 @app.route("/contact")
+@limiter.limit("50/hour")
 def contact():
     return render_template("contact.html")
 
