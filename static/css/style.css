@@ -1003,13 +1003,13 @@ figcaption p {
   .remy-pagart {
     text-align: center;
     margin-left: 0;
-    margin-bottom: 10em;
+    margin-bottom: 9em;
     width: 100%;
   }
 
   .hero-remy {
     font-size: 3em;
-    margin-bottom: -20px;
+    margin-bottom: -1px;
     line-height: 1.2;
   }
 
@@ -1020,7 +1020,7 @@ figcaption p {
 
   .hero-subtitle {
     font-size: 1.5em;
-    margin-top: -14px !important;
+    margin-top: 3px !important;
     padding: 0 15px;
   }
 
@@ -1028,7 +1028,7 @@ figcaption p {
     width: 100% !important;
     height: 465px !important;
     top: auto;
-    bottom: 0;
+    bottom: -43px;
   }
 
   .tableaux {
