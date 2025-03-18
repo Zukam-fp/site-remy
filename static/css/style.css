@@ -256,7 +256,7 @@ ul li ul li a {
   width: 63%;
   height: 52em;
   background: var(--background-gradient);
-  background-image: url(../images/Rémy911B-04.png);
+  background-image: url(../images/remy-et-mrbobo.png);
   background-position: center;
   background-size: cover;
 }
@@ -688,7 +688,7 @@ figcaption p {
 }
 
 .back-img {
-  background-image: url(../images/ARCHI/Shops/Boutique-OSIRIS-Douai-1.jpeg);
+  background-image: url(../images/ARCHI/Shops/osiris1.jpeg);
   position: relative;
   width: 100%;
   min-height: 100%;
