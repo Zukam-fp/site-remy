@@ -250,15 +250,6 @@ document.addEventListener("DOMContentLoaded", function () {
       { passive: false }
     );
   }
-
-  // Conserve le code existant pour les flèches clavier
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "ArrowLeft") {
-      btnPrev?.click();
-    } else if (event.key === "ArrowRight") {
-      btnNext?.click();
-    }
-  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -317,15 +308,6 @@ document.addEventListener("DOMContentLoaded", function () {
       { passive: false }
     );
   }
-
-  // Conserve le code existant pour les flèches clavier
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "ArrowLeft") {
-      btnPrev?.click();
-    } else if (event.key === "ArrowRight") {
-      btnNext?.click();
-    }
-  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -377,10 +359,4 @@ document.addEventListener("DOMContentLoaded", function () {
       { passive: false }
     );
   }
-
-  // Gestion des flèches clavier
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowLeft") btnPrev?.click();
-    if (e.key === "ArrowRight") btnNext?.click();
-  });
 });

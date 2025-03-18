@@ -224,13 +224,13 @@ def sculptures():
 def fusos():
     fusos = [
         {"id": 1, "titre": "Fuso", "image": "colonne-01.jpg", "description": "Fuso."},
-        {"id": 2, "titre": "Fuso", "image": "colonne-02.jpg", "description": "Fuso."},
-        {"id": 3, "titre": "Fuso", "image": "colonne-03.jpg", "description": "Fuso."},
+        {"id": 2, "titre": "Fuso", "image": "JQLA8209.jpg", "description": "Fuso."},
+        {"id": 3, "titre": "Fuso", "image": "colonne-02.jpg", "description": "Fuso."},
         {"id": 4, "titre": "Fuso", "image": "colonne-04.jpg", "description": "Fuso."},
         {"id": 5, "titre": "Fuso", "image": "colonne-05.jpg", "description": "Fuso."},
         {"id": 6, "titre": "Fuso", "image": "colonne-08.jpg", "description": "Fuso."},
-        {"id": 7, "titre": "Fuso", "image": "IMG_3213.jpg", "description": "Fuso."},
-        {"id": 8, "titre": "Fuso", "image": "JQLA8209.jpg", "description": "Fuso."},
+        {"id": 7, "titre": "Fuso", "image": "colonne-03.jpg", "description": "Fuso."},
+        {"id": 8, "titre": "Fuso", "image": "IMG_3213.jpg", "description": "Fuso."},
     ]
 
     return render_template('fusos.html', fusos=fusos)
