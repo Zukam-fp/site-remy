@@ -1061,6 +1061,7 @@ figcaption p {
     text-align: center;
     padding: 20px;
     overflow: hidden;
+    top: 1.5em;
   }
 
   .hero-content {
