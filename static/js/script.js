@@ -66,36 +66,28 @@ function showSlides(n) {
   }
 }
 
-// Fonction pour gérer les touches du clavier
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") {
-    // Flèche gauche : bouton Prev
     document.getElementById("btn-prev").click();
   } else if (event.key === "ArrowRight") {
-    // Flèche droite : bouton Next
     document.getElementById("btn-next").click();
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Éléments principaux
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("nav-links");
   const faBars = document.querySelector(".fa-bars");
 
-  // Gestion du menu hamburger
   hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
     const isOpening = !navLinks.classList.contains("active");
 
-    // Basculer l'état du menu
     navLinks.classList.toggle("active");
     faBars.classList.toggle("fa-times");
 
-    // Gestion du défilement de la page
     document.body.classList.toggle("menu-open", isOpening);
 
-    // Fermeture des sous-menus si fermeture complète
     if (!isOpening) {
       document.querySelectorAll(".nav-links ul").forEach((sub) => {
         sub.classList.remove("mobile-visible");
@@ -103,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Gestion des sous-menus multi-niveaux
   document.querySelectorAll(".nav-links li").forEach((item) => {
     const link = item.querySelector("a");
     const submenu = item.querySelector("ul");
@@ -114,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
           e.preventDefault();
           const wasVisible = submenu.classList.contains("mobile-visible");
 
-          // Fermer les dropdowns frères du même niveau
           if (!wasVisible) {
             const parentList = item.parentElement;
             parentList.querySelectorAll("li").forEach((sibling) => {
@@ -122,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const siblingSubmenu = sibling.querySelector("ul");
                 if (siblingSubmenu) {
                   siblingSubmenu.classList.remove("mobile-visible");
-                  // Fermer aussi les sous-menus enfants
+
                   siblingSubmenu.querySelectorAll("ul").forEach((child) => {
                     child.classList.remove("mobile-visible");
                   });
@@ -131,17 +121,13 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           }
 
-          // Basculer uniquement ce sous-menu
           submenu.classList.toggle("mobile-visible");
 
-          // Gestion hiérarchique
           if (wasVisible) {
-            // Fermer les enfants si on ferme le parent
             submenu.querySelectorAll("ul").forEach((childSub) => {
               childSub.classList.remove("mobile-visible");
             });
           } else {
-            // Ouvrir les parents nécessaires
             let parentMenu = item.parentElement.closest("ul");
             while (parentMenu) {
               parentMenu.classList.add("mobile-visible");
@@ -155,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Fermeture au clic externe
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".primary-navigation") && window.innerWidth <= 768) {
       navLinks.classList.remove("active");
@@ -167,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Optimisation du défilement tactile
   let touchStartY = 0;
   const SWIPE_THRESHOLD = 50;
 
@@ -185,7 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const touchEndY = e.touches[0].clientY;
       const deltaY = touchEndY - touchStartY;
 
-      // Contrôle du défilement naturel
       if (Math.abs(deltaY) > SWIPE_THRESHOLD) {
         e.stopPropagation();
       }
@@ -195,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Vérifie si mobile et si les éléments existent
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
   const tableauImage = document.querySelector(".tableau-image");
   const btnPrev = document.getElementById("btn-prev");
@@ -204,9 +186,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isMobile && tableauImage && btnPrev && btnNext) {
     let touchStartX = 0;
     let touchEndX = 0;
-    const swipeThreshold = 50; // Sensibilité du swipe
+    const swipeThreshold = 50;
 
-    // Gestion du touchstart
     tableauImage.addEventListener(
       "touchstart",
       function (e) {
@@ -215,7 +196,6 @@ document.addEventListener("DOMContentLoaded", function () {
       { passive: true }
     );
 
-    // Gestion du touchend
     tableauImage.addEventListener(
       "touchend",
       function (e) {
@@ -230,16 +210,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (Math.abs(deltaX) > swipeThreshold) {
         if (deltaX > 0) {
-          // Swipe vers la droite
           btnPrev.click();
         } else {
-          // Swipe vers la gauche
           btnNext.click();
         }
       }
     }
 
-    // Désactive le défilement horizontal naturel
     tableauImage.addEventListener(
       "touchmove",
       function (e) {
@@ -253,7 +230,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Vérifie si mobile et si les éléments existent
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
   const tableauImage = document.querySelector(".masque-image");
   const btnPrev = document.getElementById("btn-prev");
@@ -262,9 +238,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isMobile && tableauImage && btnPrev && btnNext) {
     let touchStartX = 0;
     let touchEndX = 0;
-    const swipeThreshold = 50; // Sensibilité du swipe
+    const swipeThreshold = 50;
 
-    // Gestion du touchstart
     tableauImage.addEventListener(
       "touchstart",
       function (e) {
@@ -273,7 +248,6 @@ document.addEventListener("DOMContentLoaded", function () {
       { passive: true }
     );
 
-    // Gestion du touchend
     tableauImage.addEventListener(
       "touchend",
       function (e) {
@@ -288,16 +262,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (Math.abs(deltaX) > swipeThreshold) {
         if (deltaX > 0) {
-          // Swipe vers la droite
           btnPrev.click();
         } else {
-          // Swipe vers la gauche
           btnNext.click();
         }
       }
     }
 
-    // Désactive le défilement horizontal naturel
     tableauImage.addEventListener(
       "touchmove",
       function (e) {
@@ -311,7 +282,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Vérifie si mobile et si les éléments existent
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
   const galleryCon = document.querySelector(".gallery-con");
   const btnPrev = document.getElementById("btn-prev");
@@ -320,9 +290,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isMobile && galleryCon && btnPrev && btnNext) {
     let touchStartX = 0;
     let touchEndX = 0;
-    const swipeThreshold = 50; // Sensibilité du swipe
+    const swipeThreshold = 50;
 
-    // Gestion des événements tactiles
     galleryCon.addEventListener(
       "touchstart",
       function (e) {
@@ -348,7 +317,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Bloque le défilement horizontal pendant le swipe
     galleryCon.addEventListener(
       "touchmove",
       function (e) {

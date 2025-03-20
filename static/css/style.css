@@ -294,7 +294,6 @@ footer {
   left: 0;
   z-index: 2;
   width: 100%;
-  /* max-height: 5em; */
 }
 
 footer small {
@@ -433,13 +432,15 @@ footer small {
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Effet au survol */
+.tableau-image img[alt="SHOW"] {
+  width: 70%;
+}
+
 .tableau-image img:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 25px 50px rgba(0, 0, 0, 0.15);
   transform: translateY(-5px) scale(1.02);
 }
 
-/* Ajout d'un pseudo-élément pour une ombre plus dynamique */
 .tableau-image img::after {
   content: "";
   position: absolute;
@@ -1107,6 +1108,7 @@ figcaption p {
     height: 465px !important;
     top: auto;
     bottom: -43px;
+    background-position-y: 1em;
   }
 
   .tableaux {
@@ -1139,7 +1141,6 @@ figcaption p {
     font-size: 0.7em;
   }
 
-  /* Reset spécifique pour les boutons sur Safari */
   button {
     -webkit-user-select: none;
     -moz-user-select: none;
