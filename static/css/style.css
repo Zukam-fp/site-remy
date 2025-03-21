@@ -653,6 +653,7 @@ footer small {
   margin-right: auto;
   padding: 0 2em;
   position: relative;
+  bottom: -4em;
 }
 
 .container-contact-info:after {
@@ -689,6 +690,7 @@ figcaption p {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   unicode-bidi: isolate;
+  font-size: x-large;
 }
 
 .full-screen figure {
@@ -696,7 +698,7 @@ figcaption p {
 }
 
 .back-img {
-  background-image: url(../images/ARCHI/Shops/osiris1.jpeg);
+  background-image: url(../images/Bikes/tracto-rouge.jpg);
   position: relative;
   width: 100%;
   min-height: 100%;
@@ -705,6 +707,7 @@ figcaption p {
   background-size: cover;
   background-position: center;
   filter: brightness(0.5);
+  background-position-y: -50px;
 }
 
 .contact-info {
