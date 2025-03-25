@@ -155,6 +155,12 @@ masques = [
     {"id": 40, "titre": "Mask 40", "image": "img_6337.jpg", "description": "Mask 40."},
 ]
 
+@app.before_request
+def redirect_https():
+    if request.url.startswith('http://'):
+        return redirect(request.url.replace('http://', 'https://', 1), 301)
+    if "www." not in request.url:
+        return redirect(request.url.replace('remypagart.com', 'www.remypagart.com'), 301)
 
 
 @app.route('/static/<path:filename>')
