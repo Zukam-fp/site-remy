@@ -58,6 +58,26 @@ limiter = Limiter(
 )
 
 
+
+@app.before_request
+def enforce_www_and_https():
+    if app.debug:
+        return
+    # Exclure les fichiers statiques
+    if request.path.startswith('/static/'):
+        return
+
+    host = request.host.split(':')[0]  # Enlève le port si présent
+
+    # Redirige HTTP -> HTTPS (sauf en mode debug)
+    if request.scheme == 'http' and not app.debug:
+        return redirect(request.url.replace('http://', 'https://', 1), 301)
+
+    # Redirige remypagart.com -> www.remypagart.com (sauf en mode debug)
+    if host == 'remypagart.com' and not app.debug:
+        return redirect(request.url.replace('remypagart.com', 'www.remypagart.com', 1), 301)
+
+
 if not app.debug:
     if not os.path.exists('logs'):
         os.mkdir('logs')
@@ -154,11 +174,6 @@ masques = [
     {"id": 39, "titre": "Mask 39", "image": "photo-2024-01-09-22-32-39-5.jpg", "description": "Mask 39."},
     {"id": 40, "titre": "Mask 40", "image": "img_6337.jpg", "description": "Mask 40."},
 ]
-
-@app.before_request
-def redirect_nonwww():
-    if request.host == 'remypagart.com':
-        return redirect('https://www.' + request.host + request.path, 301)
 
 
 @app.route('/static/<path:filename>')
@@ -498,4 +513,4 @@ def contact():
     return render_template("contact.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+     app.run(debug=os.environ.get('FLASK_DEBUG', 'False') == 'True')
