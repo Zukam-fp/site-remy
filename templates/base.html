@@ -13,21 +13,24 @@
     />
     <meta name="author" content="Rémy Pagart" />
     <title>{% block title %}Rémy Pagart - Artiste Designer{% endblock %}</title>
+    <!-- Polices Google optimisées -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome corrigé -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/static/images/capture_d_ecran_4-3-2025_141659_turbologo.com-removebg-preview.png"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-...sha256-..."
-      crossorigin="anonymous"
-    />
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <header>
@@ -35,28 +38,24 @@
         <div class="logo">
           <a href="/">REMY PAGART</a>
         </div>
-
         <button class="hamburger" id="hamburger" aria-label="Menu">
           <i class="fas fa-bars"></i>
         </button>
-
         <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
-          <li>
+          <li aria-haspopup="true">
             <a href="#">Work</a>
-            <ul class="dropdown" &dtrif;>
+            <ul class="dropdown">
               <li><a href="/tableaux">Painting</a></li>
-              <li>
-                <a href="/sculptures">Sculpture</a>
-              </li>
-              <li>
+              <li><a href="/sculptures">Sculpture</a></li>
+              <li aria-haspopup="true">
                 <a href="#">Design</a>
                 <ul class="dropdown2">
                   <li><a href="/furnitures">Furniture</a></li>
                   <li><a href="/motos">Bikes</a></li>
                 </ul>
               </li>
-              <li>
+              <li aria-haspopup="true">
                 <a href="#">Archi</a>
                 <ul class="dropdown3">
                   <li><a href="/boutiques">Boutique</a></li>
@@ -81,11 +80,5 @@
     </footer>
     {% endblock %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-    </style>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Permanent+Marker&display=swap");
-    </style>
   </body>
 </html>
