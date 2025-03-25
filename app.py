@@ -156,11 +156,9 @@ masques = [
 ]
 
 @app.before_request
-def redirect_https():
-    if request.url.startswith('http://'):
-        return redirect(request.url.replace('http://', 'https://', 1), 301)
-    if "www." not in request.url:
-        return redirect(request.url.replace('remypagart.com', 'www.remypagart.com'), 301)
+def redirect_nonwww():
+    if request.host == 'remypagart.com':
+        return redirect('https://www.' + request.host + request.path, 301)
 
 
 @app.route('/static/<path:filename>')
