@@ -3,49 +3,56 @@ Immobilier{% endblock %} {% block content %}
 <section class="detail-con main">
   <div class="container">
     <div class="detail-info">
-      <h2>HOUSE</h2>
+      <h1>HOUSE</h1>
     </div>
 
     <div class="gallery-con">
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/House/' + houses[0].image) }}"
+          alt="{{ houses[0].titre }}"
         />
       </div>
 
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/House/' + houses[1].image) }}"
+          alt="{{ houses[1].titre }}"
         />
       </div>
 
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/House/' + houses[2].image) }}"
+          alt="{{ houses[2].titre }}"
         />
       </div>
 
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/House/' + houses[3].image) }}"
+          alt="{{ houses[3].titre }}"
         />
       </div>
 
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/House/' + houses[4].image) }}"
+          alt="{{ houses[4].titre }}"
         />
       </div>
 
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/House/' + houses[5].image) }}"
+          alt="{{ houses[5].titre }}"
         />
       </div>
 
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/House/' + houses[6].image) }}"
+          alt="{{ houses[6].titre }}"
         />
       </div>
 

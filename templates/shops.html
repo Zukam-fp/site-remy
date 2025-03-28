@@ -1,9 +1,9 @@
-{% extends "base.html" %} {% block title %}Rémy Pagart Bar L'illustration{%
+{% extends "base.html" %} {% block title %}Rémy Pagart Bar illustration{%
 endblock %} {% block content %}
 <section class="detail-con main">
   <div class="container">
     <div class="detail-info">
-      <h2>L'ILLUSTRATION</h2>
+      <h1>L'ILLUSTRATION</h1>
       <a href="/boutiques" class="btn-retour-tbl"
         ><i class="fa-solid fa-rotate-left"></i
       ></a>
@@ -13,18 +13,21 @@ endblock %} {% block content %}
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops[0].image) }}"
+          alt="{{ shops[0].titre }}"
         />
       </div>
 
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops[1].image) }}"
+          alt="{{ shops[1].titre }}"
         />
       </div>
 
       <div class="mySlides">
         <img
           src="{{ url_for('static', filename='images/ARCHI/Shops/' + shops[2].image) }}"
+          alt="{{ shops[2].titre }}"
         />
       </div>
 
