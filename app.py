@@ -10,21 +10,8 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_wtf.csrf import CSRFProtect
 from flask_sitemap import Sitemap
+from datetime import datetime
 
-ext = Sitemap(app=app)
-
-
-@ext.register_generator
-def static_pages():
-    yield 'home', {}
-    yield 'tableaux', {}
-    yield 'sculptures', {}
-    yield 'furnitures', {}
-    yield 'motos', {}
-    yield 'boutiques', {}
-    yield 'news', {}
-    yield 'furnitures', {}
-    yield 'contact', {}
 
 
 app = Flask(__name__)
@@ -37,6 +24,8 @@ app.config.update(
     PERMANENT_SESSION_LIFETIME=3600,
     DEBUG=os.environ.get('FLASK_DEBUG', 'False') == 'False'
 )
+
+ext = Sitemap(app=app)
 
 
 csp = {
@@ -533,5 +522,29 @@ def contact():
 def robots():
     return send_from_directory(app.static_folder, 'robots.txt')
 
+# Génération du sitemap
+@ext.register_generator
+def sitemap_generator():
+    # Pages statiques
+    yield 'home', {}
+    yield 'contact', {}
+
+    # Œuvres
+    yield 'paintings', {}        # /tableaux
+    yield 'sculptures', {}       # /sculptures
+    yield 'furnitures', {}       # /furnitures
+    yield 'motos', {}            # /motos
+    yield 'boutiques', {}        # /boutiques
+    yield 'houses', {}           # /houses
+    yield 'news', {}             # /news
+
+
+@ext.register_generator
+def sitemap_generator():
+    yield 'home', {
+        'lastmod': datetime(2025, 3, 29).date(),
+        'changefreq': 'weekly',
+        'priority': 1.0
+    }
 if __name__ == "__main__":
-     app.run(debug=os.environ.get('FLASK_DEBUG', 'False') == 'True')
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
