@@ -9,6 +9,23 @@ from flask_talisman import Talisman
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_wtf.csrf import CSRFProtect
+from flask_sitemap import Sitemap
+
+ext = Sitemap(app=app)
+
+
+@ext.register_generator
+def static_pages():
+    yield 'home', {}
+    yield 'tableaux', {}
+    yield 'sculptures', {}
+    yield 'furnitures' {}
+    yield 'motos', {}
+    yield 'boutiques', {}
+    yield 'news', {}
+    yield 'furnitures' {}
+    yield 'contact', {}
+
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', os.urandom(24))
@@ -511,6 +528,10 @@ def news():
 @limiter.limit("50/hour")
 def contact():
     return render_template("contact.html")
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory(app.static_folder, 'robots.txt')
 
 if __name__ == "__main__":
      app.run(debug=os.environ.get('FLASK_DEBUG', 'False') == 'True')
