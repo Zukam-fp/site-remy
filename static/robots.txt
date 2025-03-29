@@ -1,0 +1,22 @@
+# Fichier robots.txt pour https://www.remypagart.com
+# Généré le [29/03/2025]
+
+User-agent: *
+Allow: /$
+Allow: /tableaux
+Allow: /sculptures
+Allow: /furnitures
+Allow: /motos
+Allow: /boutiques
+Allow: /houses
+Allow: /news
+Allow: /contact
+Allow: /static/images/
+
+# Blocage des ressources techniques
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://www.remypagart.com/sitemap.xml
