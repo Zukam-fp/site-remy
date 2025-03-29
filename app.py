@@ -52,7 +52,7 @@ csp = {
         "'self'",
         "'unsafe-inline'",
         "https://kit.fontawesome.com",
-    ]
+    ],
     'connect-src': "'self'",
     'frame-src': "'none'",
     'base-uri': "'self'"
@@ -75,22 +75,20 @@ limiter = Limiter(
 
 
 @app.before_request
-def enforce_www_and_https():
-    if app.debug:
-        return
-    # Exclure les fichiers statiques
-    if request.path.startswith('/static/'):
+def enforce_https_and_www():
+    if app.debug or request.path.startswith('/static/'):
         return
 
-    host = request.host.split(':')[0]  # Enlève le port si présent
+    proto = request.headers.get('X-Forwarded-Proto', 'http')
+    host = request.host.split(':')[0]
 
-    # Redirige HTTP -> HTTPS (sauf en mode debug)
-    if request.scheme == 'http' and not app.debug:
-        return redirect(request.url.replace('http://', 'https://', 1), 301)
+    # Redirection HTTPS
+    if proto == 'http':
+        return redirect(request.url.replace('http://', 'https://', 1), 301
 
-    # Redirige remypagart.com -> www.remypagart.com (sauf en mode debug)
-    if host == 'remypagart.com' and not app.debug:
-        return redirect(request.url.replace('remypagart.com', 'www.remypagart.com', 1), 301)
+    # Redirection www
+    if host == 'remypagart.com':
+        return redirect(f'https://www.remypagart.com{request.full_path}', 301)
 
 
 
@@ -544,21 +542,6 @@ def generate_sitemap():
 
     for endpoint, params in endpoints:
         yield endpoint, params
-
-if not app.debug:
-    import logging
-    from logging.handlers import RotatingFileHandler
-
-    file_handler = RotatingFileHandler(
-        'logs/app.log',
-        maxBytes=1024 * 1024 * 10,  # 10 MB
-        backupCount=5
-    )
-    file_handler.setFormatter(logging.Formatter(
-        '[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
-    ))
-    app.logger.addHandler(file_handler)
-    app.logger.setLevel(logging.INFO)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
