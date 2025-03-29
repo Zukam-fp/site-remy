@@ -11,6 +11,7 @@ from flask_limiter.util import get_remote_address
 from flask_wtf.csrf import CSRFProtect
 from flask_sitemap import Sitemap
 from datetime import datetime
+from flask import redirect
 
 
 
@@ -84,7 +85,7 @@ def enforce_https_and_www():
 
     # Redirection HTTPS
     if proto == 'http':
-        return redirect(request.url.replace('http://', 'https://', 1), 301
+        return redirect(request.url.replace('http://', 'https://', 1), 301)
 
     # Redirection www
     if host == 'remypagart.com':
