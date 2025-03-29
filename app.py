@@ -32,28 +32,30 @@ app.config.update({
 })
 
 
-sitemap = Sitemap(app=app)
+sitemap = Sitemap()
+sitemap.init_app(app)
 
 
 csp = {
     'default-src': "'self'",
-    'img-src': "'self' data:",
+    'img-src': "'self' data: www.remypagart.com",
     'style-src': [
         "'self'",
         "'unsafe-inline'",
         "https://fonts.googleapis.com",
-        "https://cdnjs.cloudflare.com"
     ],
     'font-src': [
         "'self'",
         "https://fonts.gstatic.com",
-        "https://cdnjs.cloudflare.com"
     ],
     'script-src': [
         "'self'",
         "'unsafe-inline'",
-        "https://kit.fontawesome.com"
+        "https://kit.fontawesome.com",
     ]
+    'connect-src': "'self'",
+    'frame-src': "'none'",
+    'base-uri': "'self'"
 }
 
 
@@ -90,22 +92,6 @@ def enforce_www_and_https():
     if host == 'remypagart.com' and not app.debug:
         return redirect(request.url.replace('remypagart.com', 'www.remypagart.com', 1), 301)
 
-
-if not app.debug:
-    if not os.path.exists('logs'):
-        os.mkdir('logs')
-
-    file_handler = RotatingFileHandler(
-        'logs/error.log',
-        maxBytes=1024 * 1024,
-        backupCount=10
-    )
-    file_handler.setFormatter(logging.Formatter(
-        '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
-    ))
-    app.logger.addHandler(file_handler)
-    app.logger.setLevel(logging.INFO)
-    app.logger.info('Démarrage de l\'application')
 
 
 
@@ -532,11 +518,47 @@ def robots():
 
 
 # Génération du sitemap
-@ext.register_generator
+@sitemap.register_generator
 def generate_sitemap():
-    # Pages statiques
-    yield 'home', {'_priority': 1.0}
-    yield 'contact', {'_priority': 0.8}
+    endpoints = [
+        ('accueil', {}),
+        ('tableaux_view', {}),
+        ('sculptures_view', {}),
+        ('fusos', {}),
+        ('monsters', {}),
+        ('masques_view', {}),
+        ('creations', {}),
+        ('bikes', {}),
+        ('furnitures', {}),
+        ('motos', {}),
+        ('boutiques', {}),
+        ('shops', {}),
+        ('shops2', {}),
+        ('shops3', {}),
+        ('shops4', {}),
+        ('shops5', {}),
+        ('houses', {}),
+        ('news', {}),
+        ('contact', {})
+    ]
+
+    for endpoint, params in endpoints:
+        yield endpoint, params
+
+if not app.debug:
+    import logging
+    from logging.handlers import RotatingFileHandler
+
+    file_handler = RotatingFileHandler(
+        'logs/app.log',
+        maxBytes=1024 * 1024 * 10,  # 10 MB
+        backupCount=5
+    )
+    file_handler.setFormatter(logging.Formatter(
+        '[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+    ))
+    app.logger.addHandler(file_handler)
+    app.logger.setLevel(logging.INFO)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
