@@ -24,6 +24,14 @@ app.config.update(
     PERMANENT_SESSION_LIFETIME=3600,
     DEBUG=os.environ.get('FLASK_DEBUG', 'False') == 'False'
 )
+app.config['SERVER_NAME'] = 'www.remypagart.com'
+app.config.update({
+    'SITEMAP_INCLUDE_RULES_WITHOUT_PARAMS': True,
+    'SITEMAP_URL_SCHEME': 'https',
+    'SITEMAP_IGNORE_ENDPOINTS': ['static', 'admin'],
+    'SITEMAP_LAST_MODIFIED': '2024-05-20'
+})
+
 
 ext = Sitemap(app=app)
 
@@ -522,29 +530,32 @@ def contact():
 def robots():
     return send_from_directory(app.static_folder, 'robots.txt')
 
+
+
 # Génération du sitemap
 @ext.register_generator
-def sitemap_generator():
+def generate_sitemap():
     # Pages statiques
-    yield 'home', {}
-    yield 'contact', {}
+    yield 'home', {}, 'weekly', 1.0
+    yield 'contact', {}, 'monthly', 0.8
 
-    # Œuvres
-    yield 'paintings', {}        # /tableaux
-    yield 'sculptures', {}       # /sculptures
-    yield 'furnitures', {}       # /furnitures
-    yield 'motos', {}            # /motos
-    yield 'boutiques', {}        # /boutiques
-    yield 'houses', {}           # /houses
-    yield 'news', {}             # /news
+    # Catégories d'œuvres
+    categories = [
+        ('tableaux', '2025-03-29', 'monthly', 0.9),
+        ('sculptures', '2025-03-29', 'monthly', 0.9),
+        ('furnitures', '2025-03-29', 'monthly', 0.7),
+        ('motos', '2025-03-29', 'monthly', 0.7),
+        ('boutiques', '2025-03-29', 'monthly', 0.7),
+        ('houses', '2025-03-29', 'monthly', 0.7),
+        ('news', '2025-03-29', 'daily', 0.6)
+    ]
 
+    for endpoint, lastmod, freq, prio in categories:
+        yield endpoint, {
+            'lastmod': lastmod,
+            'changefreq': freq,
+            'priority': prio
+        }
 
-@ext.register_generator
-def sitemap_generator():
-    yield 'home', {
-        'lastmod': datetime(2025, 3, 29).date(),
-        'changefreq': 'weekly',
-        'priority': 1.0
-    }
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
