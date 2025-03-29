@@ -19,11 +19,11 @@ def static_pages():
     yield 'home', {}
     yield 'tableaux', {}
     yield 'sculptures', {}
-    yield 'furnitures' {}
+    yield 'furnitures', {}
     yield 'motos', {}
     yield 'boutiques', {}
     yield 'news', {}
-    yield 'furnitures' {}
+    yield 'furnitures', {}
     yield 'contact', {}
 
 
