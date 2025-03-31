@@ -39,24 +39,30 @@ sitemap.init_app(app)
 
 csp = {
     'default-src': "'self'",
-    'img-src': "'self' data: www.remypagart.com",
+    'img-src': [
+        "'self'",
+        "data:",
+        "https://*.remypagart.com",
+        "https://cdnjs.cloudflare.com" # Autorise les images depuis CDN
+    ],
     'style-src': [
         "'self'",
         "'unsafe-inline'",
         "https://fonts.googleapis.com",
+        "https://cdnjs.cloudflare.com"
     ],
     'font-src': [
         "'self'",
         "https://fonts.gstatic.com",
+        "https://cdnjs.cloudflare.com" # Nécessaire pour Font Awesome
     ],
     'script-src': [
         "'self'",
         "'unsafe-inline'",
         "https://kit.fontawesome.com",
+        "https://cdnjs.cloudflare.com"
     ],
-    'connect-src': "'self'",
-    'frame-src': "'none'",
-    'base-uri': "'self'"
+    'report-uri': "/csp-violation-report-endpoint"
 }
 
 
@@ -181,6 +187,13 @@ def custom_static(filename):
         app.logger.warning(f'Tentative d\'accès non autorisé à {filename}')
         abort(404)
     return send_from_directory(app.static_folder, filename)
+
+
+@app.route('/csp-violation-report-endpoint', methods=['POST'])
+def csp_report():
+    if request.method == 'POST':
+        app.logger.warning('CSP Violation: %s', request.get_data())
+    return '', 204
 
 
 

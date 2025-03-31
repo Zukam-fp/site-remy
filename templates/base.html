@@ -7,13 +7,13 @@
       name="description"
       content="Rémy Pagart - Artiste designer. Découvrez mes créations uniques."
     />
-    <meta name="keywords" content="remy pagart" />
+    <meta
+      name="keywords"
+      content="remy pagart, rémy pagart, rémy, pagart, Artist, Artist designer, Artiste Designer"
+    />
     <meta name="author" content="Rémy Pagart" />
     <meta name="msvalidate.01" content="C4D005D9C24871FFFD4506F2814A5D84" />
-    <title>
-      {% block title %}Rémy Pagart - Artiste Designer | Tableaux, Sculptures et
-      Créations Uniques.{% endblock %}
-    </title>
+    <title>{% block title %}Rémy Pagart - Artiste Designer{% endblock %}</title>
     <!-- Polices Google optimisées -->
     <link
       href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400..700&display=swap"
@@ -31,8 +31,11 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
-    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
-    <link rel="canonical" href="https://www.remypagart.com/page" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
+    <link rel="canonical" href="{{ request.url }}" />
   </head>
   <body>
     <header>
