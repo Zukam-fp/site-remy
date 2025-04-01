@@ -3,15 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Rémy Pagart - Artiste designer. Découvrez mes créations uniques."
-    />
-    <meta
-      name="keywords"
-      content="remy pagart, rémy pagart, rémy, pagart, Artist, Artist designer, Artiste Designer"
-    />
-    <meta name="author" content="Rémy Pagart" />
+    {% block meta_seo %}{% endblock %} {% block canonical %}{% endblock %}
     <meta name="msvalidate.01" content="C4D005D9C24871FFFD4506F2814A5D84" />
     <title>{% block title %}Rémy Pagart - Artiste Designer{% endblock %}</title>
     <!-- Polices Google optimisées -->
@@ -35,7 +27,6 @@
       rel="icon"
       href="{{ url_for('static', filename='images/favicon.ico') }}"
     />
-    <link rel="canonical" href="{{ request.url }}" />
   </head>
   <body>
     <header>

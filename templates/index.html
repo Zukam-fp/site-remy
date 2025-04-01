@@ -1,5 +1,17 @@
-{% extends "base.html" %} {% block title %}Rémy Pagart - Homepage{% endblock %}
-{% block content %}
+{% extends "base.html" %} {% block meta_seo %}
+<!-- Balises spécifiques à l'accueil -->
+<meta
+  name="description"
+  content="Rémy Pagart - Artiste designer. Découvrez mes créations uniques."
+/>
+<meta
+  name="keywords"
+  content="art, design, rémy pagart, remy pagart, rémy, remy, pagart, artiste designer, artist designer, artist, artiste"
+/>
+<meta property="og:title" content="Rémy Pagart - Site Officiel" />
+<link rel="canonical" href="{{ request.url }}" />
+{% endblock %} {% block title %}Rémy Pagart - Homepage{% endblock %} {% block
+content %}
 <section class="detail-home main">
   <div class="hero">
     <div class="hero-content">
