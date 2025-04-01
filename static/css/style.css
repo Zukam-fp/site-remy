@@ -1232,13 +1232,13 @@ figcaption p {
     background: none;
   }
 
-  body h2 {
+  body h1 {
     font-size: 40px;
   }
 
   .detail-info .btn-retour-tbl {
     top: 15px;
-    left: 12px;
+    left: 0px;
   }
 
   .btn-retour-mask {
