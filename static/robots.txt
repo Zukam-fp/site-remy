@@ -1,11 +1,11 @@
-# Fichier robots.txt pour https://www.remypagart.com
-# Généré le [01/04/2025]
-
 User-agent: *
-Allow: /$
+Allow: /
+Disallow: /private/
+Disallow: /wp-admin/
+Disallow: /search/
 
-# Blocage des ressources techniques
-Disallow: /*
+# Autoriser explicitement le sitemap
+Allow: /sitemap.xml
 
 # Sitemap
 Sitemap: https://www.remypagart.com/sitemap.xml
