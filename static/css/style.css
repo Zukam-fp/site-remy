@@ -34,7 +34,7 @@ section {
 body {
   position: relative;
   background: #fff;
-  min-height: 100%;
+  max-height: 100%;
   color: #000;
   line-height: 1.6;
   text-align: left;
@@ -212,7 +212,7 @@ ul li ul li a {
 
 .hero {
   position: relative;
-  height: 100vh;
+  height: 90.8vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -290,7 +290,7 @@ ul li ul li a {
 
 footer {
   position: absolute;
-  bottom: -30px;
+  bottom: -26em;
   left: 0;
   z-index: 2;
   width: 100%;
@@ -1066,20 +1066,19 @@ figcaption p {
 
   .hero {
     position: relative;
-    height: 571px;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 20px;
     overflow: hidden;
-    top: 1.5em;
   }
 
   .hero-content {
     z-index: 2;
     width: 100%;
-    margin-top: -284px;
+    top: -12em;
   }
 
   .remy-pagart {
@@ -1108,10 +1107,11 @@ figcaption p {
 
   .hero-background {
     width: 100% !important;
-    height: 465px !important;
+    height: 56vh;
     top: auto;
-    bottom: -43px;
-    background-position-y: 1em;
+    bottom: 0;
+    background-size: 100%;
+    background-position: center;
   }
 
   .tableaux {
@@ -1279,6 +1279,10 @@ figcaption p {
 
   .news-con h1 {
     font-size: x-large;
+  }
+
+  footer {
+    bottom: -15em;
   }
 }
 
